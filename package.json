@@ -1,22 +1,32 @@
 {
-  "name": "testing",
+  "name": "cypress_test_2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.9.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/stepDefinitions/**/*.js"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "latest",
+    "@cypress/webpack-preprocessor": "latest",
+    "webpack": "latest"
+  },
+  "description": "## From Scratch",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RKaterina/TESTING.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/RKaterina/TESTING/issues"
   },
-  "homepage": "https://github.com/RKaterina/TESTING#readme",
-  "devDependencies": {
-    "cypress": "^12.5.1"
-  }
+  "homepage": "https://github.com/RKaterina/TESTING#readme"
 }
