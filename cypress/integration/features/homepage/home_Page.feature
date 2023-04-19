@@ -1,6 +1,7 @@
 Feature: Feature name
 
-  Scenario: verify header on he home page
-    When I navigate to home page
-    # Then I see Google icon
-    # And I want to autogenerate this part
+  Scenario: Verify header on he home page
+    When I navigate to Home page
+    # Then I should see that 'Bloomenty' icon is present
+    # And I should see that 'Services(Diensten)' menu is present
+    # And I should see that 'Enter' button is present
