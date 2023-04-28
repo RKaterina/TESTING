@@ -16,3 +16,4 @@ Feature: Verification of Bloomenty Home page
     And I should see 'Cookies' rules
     And I should see 'Accept' button
     And I should see 'Not Accept' button
+    And I click 'Accept' button
