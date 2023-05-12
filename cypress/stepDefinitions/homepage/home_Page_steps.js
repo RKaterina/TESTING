@@ -35,3 +35,7 @@ When("I navigate to Home page", () => {
   Then("I should see 'Not Accept' button", () => {
     cy.get("#rejectCookie").should("be.visible")
   });
+
+  Then("I click 'Accept' button", () => {
+    cy.click("#confirmCookie").should("be.visible")
+  });
