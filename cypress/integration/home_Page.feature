@@ -32,3 +32,4 @@ Feature: Verification of Bloomenty Home page
     When I navigate to Home page
     And I wait for 3 seconds
     Then I should see that 'Cookies' page is Not displayed
+    
