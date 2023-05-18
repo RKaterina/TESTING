@@ -22,7 +22,7 @@ Feature: Verification of Bloomenty Home page
     And I wait for 3 seconds
     Then I should see that 'Cookies' page is displayed
 
-   Scenario: Verify 'Cancel' button on the 'Cookies' page
+  Scenario: Verify 'Cancel' button on the 'Cookies' page
     When I navigate to Home page
     And I wait for 3 seconds
     And I press 'Cancel' button on the 'Cookies' page
@@ -31,5 +31,7 @@ Feature: Verification of Bloomenty Home page
   Scenario: Verify that 'Cookies' page is Not displayed after Page Refresh
     When I navigate to Home page
     And I wait for 3 seconds
+    And I press 'Cancel' button on the 'Cookies' page
+    And I refresh the page
+    And I wait for 3 seconds
     Then I should see that 'Cookies' page is Not displayed
-    
