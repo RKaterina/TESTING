@@ -11,9 +11,17 @@ import HomePagePage from "../pageObjects/homePage_page.js";
 
 const homePagePage = new HomePagePage();
 
+before(() => {
 
-When("I navigate to Home page", () => {
-  cy.visit("https://bloomenty.com/nl/home");
+    cy.visit('https://bloomenty.com/nl/home')
+    cy.session('cookie', () =>{});
+  
+  })
+
+
+
+When("I navigate to Home page", () => { 
+    cy.visit("https://bloomenty.com/nl/home");
 });
 
 When("I should see that 'Cookies' page is displayed", () => {

@@ -37,11 +37,15 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
   fixturesFolder: "cypress/fixtures",
+  watchForFileChanges: false,
   video: false,
   viewportWidth: 1280,
   viewportHeight: 1024,
   chromeWebSecurity: false,
-  e2e: {    
+  e2e: {
+    testIsolation: false,
+  
+  
     specPattern: "cypress/integration/**/*.feature",
     setupNodeEvents,
   },
