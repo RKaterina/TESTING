@@ -51,3 +51,21 @@ When("I wait for 3 seconds", () => {
 Then("I should see {string} on the 'Cookies' page", (itemCookiesPage) => {
   cy.get("itemCookiesPage").should("be.visible");
 });
+
+When("I press 'Back' button in the Browser", () => {
+    cy.go("back");
+  });
+  
+  Then("I should see that 'CookiesPage' link is correct", () => {
+    cy.get(".modal-body > a")
+    .should("have.attr", "href", "/nl/official-docs#cookie-files")
+  });
+
+  When("I navigate to 'Vacancies' page", () => { 
+    cy.visit("https://bloomenty.com/ru/vacancies");
+
+    When("I press 'Accept' button on the 'Cookies' page", () => {
+        cy.get(" #confirmCookie").click();
+      });
+
+   
