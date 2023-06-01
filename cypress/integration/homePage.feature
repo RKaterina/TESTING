@@ -1,4 +1,5 @@
-#
+Feature: Verification of Bloomenty Home page
+
 ##  Scenario: Verify elements presence on the 'Cookies' page
 ##    When I navigate to Home page
 ##    Then I should see "Flower community icon" on the 'Cookies' page
