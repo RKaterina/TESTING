@@ -82,3 +82,6 @@ When("I press 'Forward' button in the Browser", () => {
         cy.go("back");
       });
    
+      When("I press 'Login' button on the 'Home' page", () => {
+        cy.get(".nav-bar > .login-btn").click();
+      });
