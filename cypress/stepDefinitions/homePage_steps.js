@@ -8,8 +8,12 @@
 
 import {Given, When, Then, And} from "@badeball/cypress-cucumber-preprocessor";
 import HomePagePage from "../pageObjects/homePage_page.js";
+import HomePage_selectors from "../selectors/homePage_selectors.js";
+
 
 const homePagePage = new HomePagePage();
+const homePage_selectors = new HomePage_selectors();
+
 
 before(() => {
   cy.visit("https://bloomenty.com/nl/home");
@@ -30,7 +34,7 @@ When("I should see that 'Cookies' page is Not displayed", () => {
 });
 
 When("I should see that 'Cookies rules' is opened", () => {
-  cy.get("#cookie-files > .accordion-content > div").should("be.visible")
+  cy.get(homePage_selectors.cookieRules).should("be.visible")
 });
 
 When("I select 'Cookie page' link on the 'Cookies' page", () => {
