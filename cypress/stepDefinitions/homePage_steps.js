@@ -38,15 +38,15 @@ When("I should see that 'Cookies rules' is opened", () => {
 });
 
 When("I select 'Cookie page' link on the 'Cookies' page", () => {
-    cy.get(".modal-body > a").invoke('removeAttr', 'target').click();
+    cy.get(homePage_selectors.modalCookie).invoke('removeAttr', 'target').click();
 });
 
 When("I press 'Cancel' button on the 'Cookies' page", () => {
-    cy.get("#rejectCookie").click();
+    cy.get(homePage_selectors.cancelButtonCookie).click();
 });
 
 When("I select 'Vacancies' sub-menu", () => {
-    cy.get("/html/body/div/header/div/div[2]/nav/span[1]/ul/li[1]").click();
+    cy.get(homePage_selectors.subMenuVacancies).click();
 });
 
 When("I clear all Cookies", () => {
@@ -62,7 +62,7 @@ When("I wait for 3 seconds", () => {
 });
 
 Then("I should see {string} on the 'Cookies' page", (itemCookiesPage) => {
-    cy.get("itemCookiesPage").should("be.visible");
+    cy.get(homePage_selectors.itemCookie).should("be.visible");
 });
 
 When("I press 'Back' button in the Browser", () => {
@@ -74,18 +74,18 @@ When("I press 'Forward' button in the Browser", () => {
 });
 
 Then("I should see that 'CookiesPage' link is correct", () => {
-    cy.get(".modal-body > a")
+    cy.get(homePage_selectors.modalCookie)
         .should("have.attr", "href", "/nl/official-docs#cookie-files")
 });
 
 When("I navigate to 'Vacancies' page", () => {
-    cy.visit("https://bloomenty.com/ru/vacancies");
+    cy.visit("https://bloomenty.com/nl/vacancies");
 });
 
 When("I press 'Accept' button on the 'Cookies' page", () => {
-    cy.get("#confirmCookie").click();
+    cy.get(homePage_selectors.acceptButtonCookie).click();
 });
 
 When("I press 'Login' button on the 'Home' page", () => {
-    cy.get(".nav-bar > .login-btn").click();
+    cy.get(homePage_selectors.loginButtonHeader).click();
 });
