@@ -6,7 +6,7 @@
 //     cy.visit("https://bloomenty.com/nl/home");
 //   });
 
-import {Given, When, Then, And} from "@badeball/cypress-cucumber-preprocessor";
+import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 import HomePagePage from "../pageObjects/homePage_page.js";
 import HomePage_selectors from "../selectors/homePage_selectors.js";
 
@@ -16,58 +16,58 @@ const homePage_selectors = new HomePage_selectors();
 
 
 before(() => {
-  cy.visit("https://bloomenty.com/nl/home");
-  cy.session("cookie", () => {
-  });
+    cy.visit("https://bloomenty.com/nl/home");
+    cy.session("cookie", () => {
+    });
 });
 
 When("I navigate to 'Home' page", () => {
-  cy.visit("https://bloomenty.com/nl/home");
+    cy.visit("https://bloomenty.com/nl/home");
 });
 
 When("I should see that 'Cookies' page is displayed", () => {
-  homePagePage.checkCookiesPageIsVisible();
+    homePagePage.checkCookiesPageIsVisible();
 });
 
 When("I should see that 'Cookies' page is Not displayed", () => {
-  homePagePage.checkCookiesPageIsNotVisible();
+    homePagePage.checkCookiesPageIsNotVisible();
 });
 
 When("I should see that 'Cookies rules' is opened", () => {
-  cy.get(homePage_selectors.cookieRules).should("be.visible")
+    cy.get(homePage_selectors.cookieRules).should("be.visible")
 });
 
 When("I select 'Cookie page' link on the 'Cookies' page", () => {
-  cy.get(".modal-body > a").invoke('removeAttr', 'target').click();
+    cy.get(".modal-body > a").invoke('removeAttr', 'target').click();
 });
 
 When("I press 'Cancel' button on the 'Cookies' page", () => {
-  cy.get("#rejectCookie").click();
+    cy.get("#rejectCookie").click();
 });
 
 When("I select 'Vacancies' sub-menu", () => {
-  cy.get("/html/body/div/header/div/div[2]/nav/span[1]/ul/li[1]").click();
+    cy.get("/html/body/div/header/div/div[2]/nav/span[1]/ul/li[1]").click();
 });
 
 When("I clear all Cookies", () => {
-  cy.clearCookies();
+    cy.clearCookies();
 });
 
 When("I refresh the page", () => {
-  cy.reload();
+    cy.reload();
 });
 
 When("I wait for 3 seconds", () => {
-  cy.wait(3000);
+    cy.wait(3000);
 });
 
 Then("I should see {string} on the 'Cookies' page", (itemCookiesPage) => {
-  cy.get("itemCookiesPage").should("be.visible");
+    cy.get("itemCookiesPage").should("be.visible");
 });
 
 When("I press 'Back' button in the Browser", () => {
     cy.go("back");
-  });
+});
 
 When("I press 'Forward' button in the Browser", () => {
     cy.go("forward");
@@ -83,9 +83,9 @@ When("I navigate to 'Vacancies' page", () => {
 });
 
 When("I press 'Accept' button on the 'Cookies' page", () => {
-        cy.get("#confirmCookie").click();
-      });
+    cy.get("#confirmCookie").click();
+});
 
-      When("I press 'Login' button on the 'Home' page", () => {
-        cy.get(".nav-bar > .login-btn").click();
-      });
+When("I press 'Login' button on the 'Home' page", () => {
+    cy.get(".nav-bar > .login-btn").click();
+});
