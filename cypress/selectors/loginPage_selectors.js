@@ -4,11 +4,11 @@ export default class LoginPage_selectors {
 
     loginPage = ".login"
 
-    myAccountURL = "https://bloomenty.com/nl/myaccount"
+    myAccountURL = "/myaccount"
 
-    emailField = "#login_username"
+    emailinputField = "#login_username"
 
-    passwordField = "#loginPassword"
+    passwordinputField = "#loginPassword"
 
     submitButton = "#login_form_submit"
   

@@ -68,13 +68,17 @@ Then("I should see {string} on the 'Cookies' page", (itemCookiesPage) => {
 When("I press 'Back' button in the Browser", () => {
     cy.go("back");
   });
-  
+
+When("I press 'Forward' button in the Browser", () => {
+    cy.go("forward");
+});
+
 Then("I should see that 'CookiesPage' link is correct", () => {
     cy.get(".modal-body > a")
-    .should("have.attr", "href", "/nl/official-docs#cookie-files")
-  });
+        .should("have.attr", "href", "/nl/official-docs#cookie-files")
+});
 
-When("I navigate to 'Vacancies' page", () =>{ 
+When("I navigate to 'Vacancies' page", () => {
     cy.visit("https://bloomenty.com/ru/vacancies");
 });
 
@@ -82,10 +86,6 @@ When("I press 'Accept' button on the 'Cookies' page", () => {
         cy.get("#confirmCookie").click();
       });
 
-When("I press 'Forward' button in the Browser", () => {
-        cy.go("back");
-      });
-   
       When("I press 'Login' button on the 'Home' page", () => {
         cy.get(".nav-bar > .login-btn").click();
       });

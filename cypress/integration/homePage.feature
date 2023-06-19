@@ -35,6 +35,13 @@ Feature: Verification of Bloomenty Home page
     And I wait for 3 seconds
     Then I should see that 'CookiesPage' link is correct
 
+    Scenario: Verify 'Cookie page' link Via 'checking href'
+    When I press 'Back' button in the Browser
+    And I press 'Forward' button in the Browser
+    And I refresh the page
+    And I wait for 3 seconds
+    Then I should see that 'CookiesPage' link is correct
+
  Scenario: Verify that 'Cookies' page is Not displayed after navigation to another page
    When I navigate to 'Vacancies' page
    Then I should see that 'Cookies' page is Not displayed
