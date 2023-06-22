@@ -34,19 +34,19 @@ When("I should see that 'Cookies' page is Not displayed", () => {
 });
 
 When("I should see that 'Cookies rules' is opened", () => {
-    cy.get(homePage_selectors.cookieRules).should("be.visible")
+    cy.get(homePage_selectors.cookiesRules).should("be.visible")
 });
 
 When("I select 'Cookie page' link on the 'Cookies' page", () => {
-    cy.get(homePage_selectors.modalCookie).invoke('removeAttr', 'target').click();
+    cy.get(homePage_selectors.cookiesPage).invoke('removeAttr', 'target').click();
 });
 
 When("I press 'Cancel' button on the 'Cookies' page", () => {
-    cy.get(homePage_selectors.cancelButtonCookie).click();
+    cy.get(homePage_selectors.cookiesCancelButton).click();
 });
 
 When("I select 'Vacancies' sub-menu", () => {
-    cy.get(homePage_selectors.subMenuVacancies).click();
+    cy.get(homePage_selectors.vacanciesSubMenu).click();
 });
 
 When("I clear all Cookies", () => {
@@ -62,7 +62,7 @@ When("I wait for 3 seconds", () => {
 });
 
 Then("I should see {string} on the 'Cookies' page", (itemCookiesPage) => {
-    cy.get(homePage_selectors.itemCookie).should("be.visible");
+    cy.get(homePage_selectors.itemCookiesPage).should("be.visible");
 });
 
 When("I press 'Back' button in the Browser", () => {
@@ -74,7 +74,7 @@ When("I press 'Forward' button in the Browser", () => {
 });
 
 Then("I should see that 'CookiesPage' link is correct", () => {
-    cy.get(homePage_selectors.modalCookie)
+    cy.get(homePage_selectors.cookiesPage)
         .should("have.attr", "href", "/nl/official-docs#cookie-files")
 });
 
@@ -83,9 +83,9 @@ When("I navigate to 'Vacancies' page", () => {
 });
 
 When("I press 'Accept' button on the 'Cookies' page", () => {
-    cy.get(homePage_selectors.acceptButtonCookie).click();
+    cy.get(homePage_selectors.cookiesAcceptButton).click();
 });
 
 When("I press 'Login' button on the 'Home' page", () => {
-    cy.get(homePage_selectors.loginButtonHeader).click();
+    cy.get(homePage_selectors.headerLoginButton).click();
 });
