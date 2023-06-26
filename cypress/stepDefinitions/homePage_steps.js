@@ -34,11 +34,11 @@ When("I should see that 'Cookies' page is Not displayed", () => {
 });
 
 When("I should see that 'Cookies rules' is opened", () => {
-    cy.get(homePage_selectors.cookiesRules).should("be.visible")
+    cy.get(homePage_selectors.cookiesRulesSection).should("be.visible")
 });
 
 When("I select 'Cookie page' link on the 'Cookies' page", () => {
-    cy.get(homePage_selectors.cookiesPage).invoke('removeAttr', 'target').click();
+    cy.get(homePage_selectors.cookiesPageLink).invoke('removeAttr', 'target').click();
 });
 
 When("I press 'Cancel' button on the 'Cookies' page", () => {
@@ -74,7 +74,7 @@ When("I press 'Forward' button in the Browser", () => {
 });
 
 Then("I should see that 'CookiesPage' link is correct", () => {
-    cy.get(homePage_selectors.cookiesPage)
+    cy.get(homePage_selectors.cookiesPageLink)
         .should("have.attr", "href", "/nl/official-docs#cookie-files")
 });
 
