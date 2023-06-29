@@ -15,6 +15,9 @@ const homePagePage = new HomePagePage();
 const homePage_selectors = new HomePage_selectors();
 
 
+
+
+
 before(() => {
     cy.visit("https://bloomenty.com/nl/home");
     cy.session("cookie", () => {
