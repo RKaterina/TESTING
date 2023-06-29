@@ -14,11 +14,6 @@ Scenario: Verify 'Login' page
     Then I should see that 'Email' field on the 'Login' page is displayed
     And I should see that 'Password' field on the 'Login' page is displayed
 
-#  Scenario: Verify 'Login' button from the 'Login' page
-#     When I press 'Login' button on the 'Login' page
-#     And I wait for 3 seconds
-#     Then I should see that 'error' message on the 'Login' page is displayed
-
 Scenario: Verify 'No symbols before At' input data for 'Email' field
     When I fill in the 'Email' field on the 'Login' page with 'No symbols before At' data
     And I press 'Login' button on the 'Login' page
@@ -49,15 +44,15 @@ Scenario: Verify 'One symbols after dot' input data for 'Email' field
     And I press 'Login' button on the 'Login' page
     Then I should see 'Email incorrect' error message
 
-# Scenario: Verify 'Correct' input data for 'Email' field
-#     When I fill in the 'Email' field on the 'Login' page with Correct data
-#     And  I fill in the 'Password' field on the 'Login' page with 'test86'
-#     And I press 'Login' button on the 'Login' page
-#     Then I should not see 'Email incorrect' error message
-
 Scenario: Verify 'Login' button from the 'Login' page
     When I fill in the 'Email' field on the 'Login' page with Correct data
     And  I fill in the 'Password' field on the 'Login' page with 'test86'
     And I press 'Login' button on the 'Login' page
     Then I should see that avatar on the 'My account' page is displayed
     And I should see that 'My account' title on the 'My account' page is displayed
+
+# Scenario: Verify 'Correct' input data for 'Email' field
+#     When I fill in the 'Email' field on the 'Login' page with Correct data
+#     And  I fill in the 'Password' field on the 'Login' page with 'test86'
+#     And I press 'Login' button on the 'Login' page
+#     Then I should not see 'Email incorrect' error message

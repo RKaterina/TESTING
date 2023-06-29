@@ -33,7 +33,7 @@ When("I press 'Login' button on the 'Login' page", () => {
 // });
 
 When("I fill in the 'Email' field on the 'Login' page with Correct data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_selectors.emailInputCorrectData);
+    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_selectors.emailCorrectData);
 })
 
 Then("I should not see 'Email incorrect' error message", () => {
@@ -79,7 +79,3 @@ Then("I should see that avatar on the 'My account' page is displayed", () => {
 Then("I should see that 'My account' title on the 'My account' page is displayed", () => {
     cy.get(".title-icon > .title").should("be.visible");
 })
-
-  //   Then("I should see that 'error' message on the 'Login' page is displayed", () => {
-//     cy.get(".alert").should("be.visible");
-//   });
