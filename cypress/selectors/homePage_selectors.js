@@ -7,10 +7,11 @@ export default class HomePage_selectors {
     cookiesCancelButton = "#rejectCookie"
     cookiesAcceptButton = "#confirmCookie"
     headerLoginButton = ".nav-bar > .login-btn"
-    
-// Json
+    homePageContainer = ".first-block-inner"
     vacanciesSubMenu = "/html/body/div/header/div/div[2]/nav/span[1]/ul/li[1]"
     itemCookiesPage = "itemCookiesPage"
+
+    
 }
   
   

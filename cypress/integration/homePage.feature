@@ -51,6 +51,10 @@ Feature: Verification of Bloomenty Home page
    And I press 'Accept' button on the 'Cookies' page
    Then I should see that 'Cookies' page is Not displayed
 
+   Scenario: Verify correct 'Online platform' page header
+   When I navigate to 'Home' page
+   Then I should see correct 'Online platform' page header
+
 #  Scenario: Verify that 'Cookies' page is Not displayed after Page Refresh
 #    When I refresh the page
 #    And I wait for 3 seconds

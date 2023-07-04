@@ -1,11 +1,3 @@
-
-
-// import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor"
-
-// When("I navigate to Home page", () => {
-//     cy.visit("https://bloomenty.com/nl/home");
-//   });
-
 import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 import HomePagePage from "../pageObjects/homePage_page.js";
 import HomePage_selectors from "../selectors/homePage_selectors.js";
@@ -16,6 +8,13 @@ const homePage_selectors = new HomePage_selectors();
 
 
 
+let homePage_data; // Used us a link to the fixtures data
+
+before(() => {
+    cy.fixture("/homePage.json"). then((homeDataFile) => {
+    homePage_data = homeDataFile;
+});
+});
 
 
 before(() => {
@@ -23,6 +22,9 @@ before(() => {
     cy.session("cookie", () => {
     });
 });
+
+
+
 
 When("I navigate to 'Home' page", () => {
     cy.visit("https://bloomenty.com/nl/home");
@@ -92,3 +94,7 @@ When("I press 'Accept' button on the 'Cookies' page", () => {
 When("I press 'Login' button on the 'Home' page", () => {
     cy.get(homePage_selectors.headerLoginButton).click();
 });
+
+When("I should see correct 'Online platform' page header", () => {
+    cy.get(homePage_selectors.homePageContainer).should("contain", homePage_data.onlinePlatformPageHeader);
+  });
