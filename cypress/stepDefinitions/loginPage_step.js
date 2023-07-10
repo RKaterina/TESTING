@@ -21,7 +21,7 @@ Then("I should see that 'Login' page is displayed", () => {
 });
 
 Then("I should see that 'Login' page URL is correct", () => {
-    cy.url().should('include', loginPage_data.myAccountURL);
+    cy.url().should('include', loginPage_data.URLs.myAccountURL);
 });
 
 Then("I should see that 'Email' field on the 'Login' page is displayed", () => {
@@ -49,35 +49,35 @@ Then("I should not see 'Email incorrect' error message", () => {
 })
 
 When("I fill in the 'Email' field on the 'Login' page with 'No symbols before At' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.noSymbolsBeforeAt);
+    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noSymbolsBeforeAt);
 })
 
 When("I fill in the 'Email' field on the 'Login' page with 'No symbols after At' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.noSymbolsAfterAt);
+    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noSymbolsAfterAt);
 })
 
 When("I fill in the 'Email' field on the 'Login' page with 'No symbols after dot' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.noSymbolsAfterDot);
+    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noSymbolsAfterDot);
 })
 
 When("I fill in the 'Email' field on the 'Login' page with 'No dot' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.noDot);
+    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noDot);
 })
 
 When("I fill in the 'Email' field on the 'Login' page with 'No At' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.noAt);
+    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noAt);
 })
 
 When("I fill in the 'Email' field on the 'Login' page with 'One symbols after dot' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.oneSymbolsAfterDot);
+    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.oneSymbolsAfterDot);
 })
 
 Then("I should see 'Email incorrect' error message", () => {
     cy.get(loginPage_selectors.emailIncorrectErrorMessage).should("be.visible");
 })
 
-When("I fill in the 'Password' field on the 'Login' page with 'test86'", () => {
-    cy.get(loginPage_selectors.passwordInputField).clear().type("test86");
+When("I fill in the 'Password' field on the 'Login' page with Correct data", () => {
+    cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordCorrectData);
 })
 
 Then("I should see that avatar on the 'My account' page is displayed", () => {

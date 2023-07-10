@@ -44,15 +44,9 @@ Scenario: Verify 'One symbols after dot' input data for 'Email' field
     And I press 'Login' button on the 'Login' page
     Then I should see 'Email incorrect' error message
 
-Scenario: Verify 'Login' button from the 'Login' page
+Scenario: Verify 'Correct' input data for 'Email' and 'Password' fields
     When I fill in the 'Email' field on the 'Login' page with Correct data
-    And  I fill in the 'Password' field on the 'Login' page with 'test86'
+    And  I fill in the 'Password' field on the 'Login' page with Correct data
     And I press 'Login' button on the 'Login' page
     Then I should see that avatar on the 'My account' page is displayed
     And I should see that 'My account' title on the 'My account' page is displayed
-
-# Scenario: Verify 'Correct' input data for 'Email' field
-#     When I fill in the 'Email' field on the 'Login' page with Correct data
-#     And  I fill in the 'Password' field on the 'Login' page with 'test86'
-#     And I press 'Login' button on the 'Login' page
-#     Then I should not see 'Email incorrect' error message

@@ -11,9 +11,9 @@ const homePage_selectors = new HomePage_selectors();
 let homePage_data; // Used us a link to the fixtures data
 
 before(() => {
-    cy.fixture("/homePage.json"). then((homeDataFile) => {
-    homePage_data = homeDataFile;
-});
+    cy.fixture("/homePage.json").then((homeDataFile) => {
+        homePage_data = homeDataFile;
+    });
 });
 
 
@@ -97,4 +97,4 @@ When("I press 'Login' button on the 'Home' page", () => {
 
 When("I should see correct 'Online platform' page header", () => {
     cy.get(homePage_selectors.homePageContainer).should("contain", homePage_data.onlinePlatformPageHeader);
-  });
+});
