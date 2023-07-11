@@ -2,15 +2,24 @@
   "URLs":{
     "myAccountURL": "/myaccount"
   },
-  "EmailData":{
-    "IncorrectEmailData":{
+  "emailData":{
+    "incorrectEmailData":{
         "noSymbolsBeforeAt": "@gmail.com",
         "noSymbolsAfterAt": "edaglidenok.86+86@",
         "noSymbolsAfterDot": "edaglidenok.86+86@gmail.",
         "noDot": "edaglidenok.86+86@gmailcom",
-        "oneSymbolsAfterDot": "edaglidenok.86+86@gmail.c",
+        "oneSymbolAfterDot": "edaglidenok.86+86@gmail.c",
         "noAt": "edaglidenok.86+86gmail.com"
     }
+  },
+  "passwordData":{
+    "incorrectPasswordData": {
+        "noSymbols": " ",
+        "oneDot": ".",
+        "oneSymbol": "t",
+        "noOneSymbol": "test8",
+        "upperCaseSymbols": "TEST86"
+    }  
   },
   "emailCorrectData": "edaglidenok.86+86@gmail.com",
   "passwordCorrectData": "test86"

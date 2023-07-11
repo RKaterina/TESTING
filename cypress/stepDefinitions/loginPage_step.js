@@ -7,9 +7,9 @@ const loginPage_selectors = new LoginPage_selectors();
 let loginPage_data; // Used us a link to the fixtures data
 
 before(() => {
-    cy.fixture("/loginPage.json"). then((loginDataFile) => {
-    loginPage_data = loginDataFile;
-});
+    cy.fixture("/loginPage.json").then((loginDataFile) => {
+        loginPage_data = loginDataFile;
+    });
 });
 
 When("I navigate to 'Login' page", () => {
@@ -36,48 +36,9 @@ When("I press 'Login' button on the 'Login' page", () => {
     cy.get(loginPage_selectors.submitButton).click();
 });
 
-// When("I press 'Log out' button on the 'My account' page", () => {
-//     cy.get(".nav-item.header-user > ul > li:nth-child(4)").click({force: true});
-// });
-
-When("I fill in the 'Email' field on the 'Login' page with Correct data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailCorrectData);
-})
-
 Then("I should not see 'Email incorrect' error message", () => {
     cy.get(loginPage_selectors.emailIncorrectErrorMessage).should("not.be.visible");
-})
 
-When("I fill in the 'Email' field on the 'Login' page with 'No symbols before At' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noSymbolsBeforeAt);
-})
-
-When("I fill in the 'Email' field on the 'Login' page with 'No symbols after At' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noSymbolsAfterAt);
-})
-
-When("I fill in the 'Email' field on the 'Login' page with 'No symbols after dot' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noSymbolsAfterDot);
-})
-
-When("I fill in the 'Email' field on the 'Login' page with 'No dot' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noDot);
-})
-
-When("I fill in the 'Email' field on the 'Login' page with 'No At' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.noAt);
-})
-
-When("I fill in the 'Email' field on the 'Login' page with 'One symbols after dot' data", () => {
-    cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.EmailData.IncorrectEmailData.oneSymbolsAfterDot);
-})
-
-Then("I should see 'Email incorrect' error message", () => {
-    cy.get(loginPage_selectors.emailIncorrectErrorMessage).should("be.visible");
-})
-
-When("I fill in the 'Password' field on the 'Login' page with Correct data", () => {
-    cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordCorrectData);
 })
 
 Then("I should see that avatar on the 'My account' page is displayed", () => {
@@ -87,3 +48,65 @@ Then("I should see that avatar on the 'My account' page is displayed", () => {
 Then("I should see that 'My account' title on the 'My account' page is displayed", () => {
     cy.get(".title-icon > .title").should("be.visible");
 })
+
+Then("I should see 'Email incorrect' error message", () => {
+    cy.get(loginPage_selectors.emailIncorrectErrorMessage).should("be.visible");
+})
+
+
+When("I fill in the 'Email' field on the 'Login' page with {string} data", (emailInputData) => {
+    switch (emailInputData) {
+        case "Correct":
+            cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailCorrectData);
+            break;
+        case "No symbols before At":
+            cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailData.incorrectEmailData.noSymbolsBeforeAt);
+            break;
+        case "No symbols after At":
+            cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailData.incorrectEmailData.noSymbolsAfterAt);
+            break;
+        case "No symbols after dot":
+            cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailData.incorrectEmailData.noSymbolsAfterDot);
+            break;
+        case "No dot":
+            cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailData.incorrectEmailData.noDot);
+            break;
+        case "No At":
+            cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailData.incorrectEmailData.noAt);
+            break;
+        case "One symbol after dot":
+            cy.get(loginPage_selectors.emailInputField).clear().type(loginPage_data.emailData.incorrectEmailData.oneSymbolAfterDot);
+            break;
+        default:
+            throw new Error(`Unknown email data is specified: ${emailInputData}`);
+
+    }
+
+})
+
+When("I fill in the 'Password' field on the 'Login' page with {string} data", (passwordInputData) => {
+    switch (passwordInputData) {
+        case "Correct":
+            cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordCorrectData);
+            break;
+        case "No symbols":
+            cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordData.incorrectPasswordData.noSymbols);
+            break;
+        case "One dot":
+            cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordData.incorrectPasswordData.oneDot);
+            break;
+        case "One symbol":
+            cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordData.incorrectPasswordData.oneSymbol);
+            break;
+        case "No one symbol":
+            cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordData.incorrectPasswordData.noOneSymbol);
+            break;
+        case "Upper case symbols":
+            cy.get(loginPage_selectors.passwordInputField).clear().type(loginPage_data.passwordData.incorrectPasswordData.upperCaseSymbols);
+            break;
+        default:
+            throw new Error(`Unknown password data is specified: ${passwordInputData}`);
+    }
+
+})
+
