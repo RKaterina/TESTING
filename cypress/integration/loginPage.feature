@@ -45,7 +45,7 @@ Feature: Verification of Bloomenty Login page
     Then I should see 'Email incorrect' error message
 
   Scenario: Verify 'One symbols after dot' input data for 'Email' field
-    When I fill in the 'Email' field on the 'Login' page with "One symbols after dot" data
+    When I fill in the 'Email' field on the 'Login' page with "One symbol after dot" data
     And I fill in the 'Password' field on the 'Login' page with "Correct" data
     And I press 'Login' button on the 'Login' page
     Then I should see 'Email incorrect' error message

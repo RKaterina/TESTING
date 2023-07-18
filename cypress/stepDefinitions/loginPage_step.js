@@ -79,9 +79,7 @@ When("I fill in the 'Email' field on the 'Login' page with {string} data", (emai
             break;
         default:
             throw new Error(`Unknown email data is specified: ${emailInputData}`);
-
     }
-
 })
 
 When("I fill in the 'Password' field on the 'Login' page with {string} data", (passwordInputData) => {
@@ -107,6 +105,5 @@ When("I fill in the 'Password' field on the 'Login' page with {string} data", (p
         default:
             throw new Error(`Unknown password data is specified: ${passwordInputData}`);
     }
-
 })
 
