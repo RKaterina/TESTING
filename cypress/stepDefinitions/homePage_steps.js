@@ -23,11 +23,6 @@ before(() => {
     });
 });
 
-
-When("I navigate to 'Home' page", () => {
-    cy.visit("https://bloomenty.com/nl/home");
-});
-
 When("I should see that 'Cookies' page is displayed", () => {
     homePagePage.checkCookiesPageIsVisible();
 });
@@ -60,14 +55,6 @@ When("I refresh the page", () => {
     cy.reload();
 });
 
-When("I wait for 3 seconds", () => {
-    cy.wait(3000);
-});
-
-Then("I should see {string} on the 'Cookies' page", (itemCookiesPage) => {
-    cy.get(homePage_selectors.itemCookiesPage).should("be.visible");
-});
-
 When("I press 'Back' button in the Browser", () => {
     cy.go("back");
 });
@@ -77,12 +64,7 @@ When("I press 'Forward' button in the Browser", () => {
 });
 
 Then("I should see that 'CookiesPage' link is correct", () => {
-    cy.get(homePage_selectors.cookiesPageLink)
-        .should("have.attr", "href", "/nl/official-docs#cookie-files")
-});
-
-When("I navigate to 'Vacancies' page", () => {
-    cy.visit("https://bloomenty.com/nl/vacancies");
+    cy.get(homePage_selectors.cookiesPageLink).should("have.attr", "href", "/nl/official-docs#cookie-files")
 });
 
 When("I press 'Accept' button on the 'Cookies' page", () => {

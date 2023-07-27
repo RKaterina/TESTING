@@ -1,18 +1,18 @@
 Feature: Verification of Bloomenty Login page
 
   Scenario: Verify 'Login' button from the Home page
-    When I navigate to 'Home' page
-    And I wait for 3 seconds
+    When I navigate to "Home" page
+    And I wait for "3" seconds
     And I press 'Cancel' button on the 'Cookies' page
     And I press 'Login' button on the 'Home' page
     Then I should see that 'Login' page is displayed
     And I should see that 'Login' page URL is correct
 
   Scenario: Verify 'Login' page
-    When I navigate to 'Login' page
-    And I wait for 3 seconds
-    Then I should see that 'Email' field on the 'Login' page is displayed
-    And I should see that 'Password' field on the 'Login' page is displayed
+    When I navigate to "Login" page
+    And I wait for "3" seconds
+    Then I should see that "Email" field on the 'Login' page is displayed
+    And I should see that "Password" field on the 'Login' page is displayed
 
   Scenario: Verify 'No symbols before At' input data for 'Email' field
     When I fill in the 'Email' field on the 'Login' page with "No symbols before At" data
@@ -80,7 +80,7 @@ Feature: Verification of Bloomenty Login page
     And I press 'Login' button on the 'Login' page
     Then I should see 'Email incorrect' error message
 
-  Scenario: Verify 'Correct' input data for 'Email' and 'Password' fields
+Scenario: Verify 'Correct' input data for 'Email' and 'Password' fields
     When I fill in the 'Email' field on the 'Login' page with "Correct" data
     And I fill in the 'Password' field on the 'Login' page with "Correct" data
     And I press 'Login' button on the 'Login' page
