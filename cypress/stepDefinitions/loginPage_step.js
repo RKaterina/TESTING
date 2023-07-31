@@ -37,10 +37,6 @@ Then("I should see that avatar on the 'My account' page is displayed", () => {
     cy.get(".header-user-image > img").should("be.visible");
 })
 
-Then("I should see that 'My account' title on the 'My account' page is displayed", () => {
-    cy.get(".title-icon > .title").should("be.visible");
-})
-
 Then("I should see 'Email incorrect' error message", () => {
     cy.get(loginPage_selectors.emailIncorrectErrorMessage).should("be.visible");
 })

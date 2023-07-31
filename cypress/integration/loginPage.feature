@@ -85,4 +85,4 @@ Scenario: Verify 'Correct' input data for 'Email' and 'Password' fields
     And I fill in the 'Password' field on the 'Login' page with "Correct" data
     And I press 'Login' button on the 'Login' page
     Then I should see that avatar on the 'My account' page is displayed
-    And I should see that 'My account' title on the 'My account' page is displayed
+    And I should see that "My account" title on the "My account" page is displayed

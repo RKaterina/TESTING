@@ -1,9 +1,11 @@
 import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 
 import Header_selectors from "../selectors/header_selectors.js";
+import Common_selectors from "../selectors/common_selectors.js";
 
 
 const header_selectors = new Header_selectors();
+const common_selectors = new Common_selectors();
 
 let header_data; // Used us a link to the fixtures data
 
@@ -20,7 +22,7 @@ before(() => {
     });
 });
 
-When("I should see that {string} is displayed", (headerItemMenu) => {
+When("I should see that {string} on the header is displayed", (headerItemMenu) => {
     switch (headerItemMenu) {
         case "Bloomenty logo":
             cy.get(header_selectors.headerLogo).should("be.visible");
@@ -44,7 +46,11 @@ When("I should see that {string} is displayed", (headerItemMenu) => {
             throw new Error(`Unknown item name data specified: ${headerItemMenu}`);
     }
 });
-    
+
+When("I press 'Logout' button in the header", () => {
+    cy.get(header_selectors.headerLogoutButton).click({ force: true });
+});
+
 When("I press item {string} for 'Services' header menu", (headerItemSubMenu) => {
     switch (headerItemSubMenu) {
         case "Vacancies":
@@ -67,18 +73,33 @@ When("I press item {string} for 'Services' header menu", (headerItemSubMenu) => 
 When("I should see that {string} title on the {string} page is displayed", (titleOfThePage) => {
     switch (titleOfThePage) {
         case "Vacancies":
-            cy.get(header_selectors.titleVacanciesPage).should("be.visible");
+            cy.get(common_selectors.titleVacanciesPage).should("be.visible");
             break;
         case "News":
-            cy.get(header_selectors.titleNewsPage).should("be.visible");
+            cy.get(common_selectors.titleNewsPage).should("be.visible");
             break;
         case "Blog":
-            cy.get(header_selectors.titleBlogPage).should("be.visible");
+            cy.get(common_selectors.titleBlogPage).should("be.visible");
+            break;
+        case "My account":
+            cy.get(common_selectors.titleMyAccountPage).should("be.visible");
+            break;
+        case "About us":
+            cy.get(common_selectors.titleAboutUsPage).should("be.visible");
+            break;
+        case "Forum":
+            cy.get(common_selectors.titleForumPage).should("be.visible");
+            break;
+        case "Our team":
+            cy.get(common_selectors.titleOurTeamPage).should("be.visible");
+            break;
+        case "Contacts":
+            cy.get(common_selectors.titleContactsPage).should("be.visible");
             break;
         default:
             throw new Error(`Unknown item name data specified: ${titleOfThePage}`);
     }
 });
-    
-    
+
+
 
