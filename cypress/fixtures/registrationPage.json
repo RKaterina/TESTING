@@ -1,0 +1,52 @@
+{
+    "nickNameData": {
+      "incorrectNickNameData": {
+        "nickNameInput1symbols": "",
+        "nickNameInput51symbols": ""
+      },
+      "correctNickNameData": [
+        "asjkfh asgsadg",
+        "weyerwy fghdf weryery",
+        "sdf-wtwe",
+        "12",
+        "345",
+        "skjfsdfjkgasdgsds",
+        "AQWERTYUIOPKASDFGHJKLZXCVBNMQWERTYUISDFGHXCVBTYDFA",
+        "aQWERTY UIOPKASD FGHJKLZX CVBN MQWER TYUICV BTYDFa"
+      ]
+    },
+    "nameData": {
+        "incorrectNameData": {
+            "nameInput1symbols": "",
+            "nameInput51symbols": ""
+        },
+        "correctNameData": [
+            "asjkfh asgsadg",
+            "weyerwy fghdf weryery",
+            "sdf-wtwe",
+            "12",
+            "345",
+            "skjfsdfjkgasdgsds",
+            "AQWERTYUIOPKASDFGHJKLZXCVBNMQWERTYUISDFGHXCVBTYDFA",
+            "aQWERTY UIOPKASD FGHJKLZX CVBN MQWER TYUICV BTYDFa"
+          ]
+        },
+        "surNameData": {
+            "incorrectSurNameData": {
+                "surNameInput1symbols": "",
+                "surNameInput51symbols": ""
+            },
+            "correctSurNameData": [
+                "asjkfh asgsadg",
+                "weyerwy fghdf weryery",
+                "sdf-wtwe",
+                "12",
+                "345",
+                "skjfsdfjkgasdgsds",
+                "AQWERTYUIOPKASDFGHJKLZXCVBNMQWERTYUISDFGHXCVBTYDFA",
+                "aQWERTY UIOPKASD FGHJKLZX CVBN MQWER TYUICV BTYDFa"
+              ]
+            },
+        
+    "registrationPageUrl": "https://bloomenty.com/nl/registration"
+  }

@@ -44,6 +44,14 @@ before(() => {
     });
 });
 
+let registrationPage_data; // Used us a link to the fixtures data
+
+before(() => {
+    cy.fixture("/registrationPage.json").then((registrationPageDataFile) => {
+        registrationPage_data = registrationPageDataFile;
+    });
+});
+
 When("I navigate to {string} page", (navigateToPage) => {
     switch (navigateToPage) {
         case "Home":
@@ -54,6 +62,9 @@ When("I navigate to {string} page", (navigateToPage) => {
             break;
         case "Vacancies":
             cy.visit(header_data.vacanciesPageURL);
+            break;
+        case "Registration":
+            cy.visit(registrationPage_data.registrationPageUrl);
             break;
         default:
             throw new Error(`Unknown page name data specified: ${navigateToPage}`);
