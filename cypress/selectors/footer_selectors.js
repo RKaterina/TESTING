@@ -2,8 +2,8 @@
 
 export default class Footer_selectors {
 
-    footerLogo = "[data-cy=footerLogo]"
-    footerTitleNavigation = "[data-cy=footerTitleNavigation]"
+    footerBloomentyLogo = "[data-cy=footerLogo]"
+    footerNavigationTitle = "[data-cy=footerTitleNavigation]"
     footerNavigationAboutUs = "[data-cy=footerNavigationAboutUs]"
     footerNavigationForum = "[data-cy=footerNavigationForum]"
     footerNavigationEncyclopedia = "[data-cy=footerNavigationEncyclopedia]"
@@ -14,13 +14,13 @@ export default class Footer_selectors {
     footerNavigationVacancies = "[data-cy=footerNavigationVacancies]"
     footerNavigationOurTeam = "[data-cy=footerNavigationOurTeam]"
     footerNavigationContacts = "[data-cy=footerNavigationContacts]"
-    footerTitleOfficialDocs = "[data-cy=footerTitleOfficialDocs]"
+    footerOfficialDocsTitle = "[data-cy=footerTitleOfficialDocs]"
     footerOfficialDocsPlatformRules = "[data-cy=footerOfficialDocsPlatformRules]"
     footerOfficialDocsPrivacyPolicy = "[data-cy=footerOfficialDocsPrivacyPolicy]"
-    footerCopyright = "[data-cy=footerCopyright]"
+    footerBloomentyCopyright = "[data-cy=footerCopyright]"
     footerIconFacebookLink = "[data-cy=footerIconFacebookLink]"
     footerIconInstagramLink = "[data-cy=footerIconInstagramLink]"
     scrolToToplButton = "[data-cy=scrolToToplButton]"
-    
-    
+
+
 }

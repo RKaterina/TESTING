@@ -7,7 +7,7 @@ export default class Header_selectors {
     headerEncyclopediaMenu = "[data-cy=headerEncyclopediaMenu]"
     headerForumMenu = "[data-cy=headerForumMenu]"
     headerAboutUsMenu = "#headerAboutUsMenu"
-    headerActiveLanguage = "[data-cy=activeLanguage]"
+    headerActiveLanguageMenu = "[data-cy=activeLanguage]"
     headerServicesVacanciesSubMenu = "[data-cy=headerServicesVacanciesSubMenu]"
     headerServicesTravelClubSubMenu = "[data-cy=headerServicesTravelClubSubMenu]"
     headerServicesNewsSubMenu = "[data-cy=headerServicesNewsSubMenu]"

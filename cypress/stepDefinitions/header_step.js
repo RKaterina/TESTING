@@ -2,10 +2,10 @@ import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor"
 
 import Header_selectors from "../selectors/header_selectors.js";
 import Common_selectors from "../selectors/common_selectors.js";
-import Common_Page from "../pageObjects/common_page.js";
+import Common_page from "../pageObjects/common_page.js";
 
 
-const common_Page = new Common_Page();
+const common_page = new Common_page();
 const header_selectors = new Header_selectors();
 const common_selectors = new Common_selectors();
 
@@ -24,25 +24,19 @@ before(() => {
     });
 });
 
-When("I should see that {string} on the header is displayed", (headerItemMenu) => {
+When("I should see that 'Bloomenty logo' on the header is displayed", () => {
+    cy.get(header_selectors.headerLogo).should("be.visible");
+});
+
+When("I should see that {string} menu on the header is displayed", (headerItemMenu) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(headerItemMenu, "header", "Menu");
     switch (headerItemMenu) {
-        case "Bloomenty logo":
-            cy.get(header_selectors.headerLogo).should("be.visible");
-            break;
-        case "Services menu":
-            cy.get(header_selectors.headerServicesMenu).should("be.visible");
-            break;
-        case "Encyclopedia menu":
-            cy.get(header_selectors.headerEncyclopediaMenu).should("be.visible");
-            break;
-        case "Forum menu":
-            cy.get(header_selectors.headerForumMenu).should("be.visible");
-            break;
-        case "About us menu":
-            cy.get(header_selectors.headerAboutUsMenu).should("be.visible");
-            break;
-        case "Active languaage menu":
-            cy.get(header_selectors.headerActiveLanguage).should("be.visible");
+        case "Services":
+        case "Encyclopedia":
+        case "Forum":
+        case "About us":
+        case "Active language":
+            cy.get(header_selectors[selector]).should("be.visible");
             break;
         default:
             throw new Error(`Unknown item name data specified: ${headerItemMenu}`);
@@ -50,18 +44,13 @@ When("I should see that {string} on the header is displayed", (headerItemMenu) =
 });
 
 When("I press item {string} for 'Services' header menu", (headerItemSubMenu) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(headerItemSubMenu, "headerServices", "SubMenu");
     switch (headerItemSubMenu) {
         case "Vacancies":
-            cy.get(header_selectors.headerServicesVacanciesSubMenu).click({ force: true });
-            break;
         case "TravelClub":
-            cy.get(header_selectors.headerServicesTravelClubSubMenu).click({ force: true });
-            break;
         case "News":
-            cy.get(header_selectors.headerServicesNewsSubMenu).click({ force: true });
-            break;
         case "Blog":
-            cy.get(header_selectors.headerServicesBlogSubMenu).click({ force: true });
+            cy.get(header_selectors[selector]).click({ force: true });
             break;
         default:
             throw new Error(`Unknown item name data specified: ${headerItemSubMenu}`);
@@ -69,30 +58,17 @@ When("I press item {string} for 'Services' header menu", (headerItemSubMenu) => 
 });
 
 When("I should see that {string} title on the {string} page is displayed", (titleOfThePage) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(titleOfThePage, "title", "Page");
     switch (titleOfThePage) {
         case "Vacancies":
-            cy.get(common_selectors.titleVacanciesPage).should("be.visible");
-            break;
         case "News":
-            cy.get(common_selectors.titleNewsPage).should("be.visible");
-            break;
         case "Blog":
-            cy.get(common_selectors.titleBlogPage).should("be.visible");
-            break;
         case "My account":
-            cy.get(common_selectors.titleMyAccountPage).should("be.visible");
-            break;
         case "About us":
-            cy.get(common_selectors.titleAboutUsPage).should("be.visible");
-            break;
         case "Forum":
-            cy.get(common_selectors.titleForumPage).should("be.visible");
-            break;
         case "Our team":
-            cy.get(common_selectors.titleOurTeamPage).should("be.visible");
-            break;
         case "Contacts":
-            cy.get(common_selectors.titleContactsPage).should("be.visible");
+            cy.get(common_selectors[selector]).should("be.visible");
             break;
         default:
             throw new Error(`Unknown item name data specified: ${titleOfThePage}`);
@@ -100,7 +76,7 @@ When("I should see that {string} title on the {string} page is displayed", (titl
 });
 
 When("I press {string} button on the header", (headerButtonName) => {
-    const selector = common_Page.removeSpaceAndApplyCamelCase(headerButtonName, "header", "Button");
+    const selector = common_page.removeSpaceAndApplyCamelCase(headerButtonName, "header", "Button");
     switch (headerButtonName) {
         case "Login":
         case "Logout":

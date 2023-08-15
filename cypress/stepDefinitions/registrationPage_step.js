@@ -27,27 +27,17 @@ before(() => {
 });
 
 When("I fill in the {string} field on the 'Registration' page with Correct data", (nameInputFieldRegistration) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "InputField");
+    const data = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "Data");
     switch (nameInputFieldRegistration) {
         case "Nickname":
-            var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.nickNameData.correctNickNameData);
-
-            cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.nickNameData.correctNickNameData[rnd])
-
-            common_page.typeDataForInputField(registration_selectors.nickNameInputField, registrationPage_data.nickNameData.correctNickNameData[rnd]);
-            break;
         case "Name":
-            var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.nameData.correctNameData);
-
-            cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.nameData.correctNameData[rnd])
-
-            common_page.typeDataForInputField(registration_selectors.nameInputField, registrationPage_data.nameData.correctNameData[rnd]);
-            break;
         case "Surname":
-            var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.surnameData.correctSurnameData);
+            var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.registrationData.correctData[data]);
 
-            cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.surnameData.correctSurnameData[rnd])
+            cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.registrationData.correctData[data][rnd])
 
-            common_page.typeDataForInputField(registration_selectors.surnameInputField, registrationPage_data.surnameData.correctSurnameData[rnd]);
+            common_page.typeDataForInputField(registration_selectors[selector], registrationPage_data.registrationData.correctData[data][rnd]);
             break;
         default:
             throw new Error(`Unknown field name data specified: ${nameInputFieldRegistration}`);

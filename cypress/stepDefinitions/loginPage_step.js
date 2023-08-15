@@ -43,27 +43,18 @@ Then("I should see 'Email incorrect' error message", () => {
 
 
 When("I fill in the 'Email' field on the 'Login' page with {string} data", (emailInputData) => {
+    const data = common_page.removeSpaceAndApplyCamelCase(emailInputData, "", "");
     switch (emailInputData) {
         case "Correct":
             common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailCorrectData);
             break;
         case "No symbols before At":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noSymbolsBeforeAt);
-            break;
         case "No symbols after At":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noSymbolsAfterAt);
-            break;
         case "No symbols after dot":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noSymbolsAfterDot);
-            break;
         case "No dot":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noDot);
-            break;
         case "No At":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noAt);
-            break;
         case "One symbol after dot":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.oneSymbolAfterDot);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData[data]);
             break;
         default:
             throw new Error(`Unknown email data is specified: ${emailInputData}`);
@@ -71,24 +62,17 @@ When("I fill in the 'Email' field on the 'Login' page with {string} data", (emai
 })
 
 When("I fill in the 'Password' field on the 'Login' page with {string} data", (passwordInputData) => {
+    const data = common_page.removeSpaceAndApplyCamelCase(passwordInputData, "", "");
     switch (passwordInputData) {
         case "Correct":
             common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordCorrectData);
             break;
-        case "No symbols":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.noSymbols);
-            break;
         case "One dot":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.oneDot);
-            break;
+        case "No symbols":
         case "One symbol":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.oneSymbol);
-            break;
         case "No one symbol":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.noOneSymbol);
-            break;
         case "Upper case symbols":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.upperCaseSymbols);
+            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData[data]);
             break;
         default:
             throw new Error(`Unknown password data is specified: ${passwordInputData}`);

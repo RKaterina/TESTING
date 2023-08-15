@@ -53,23 +53,30 @@ before(() => {
 });
 
 When("I navigate to {string} page", (navigateToPage) => {
+    const data = common_page.removeSpaceAndApplyCamelCase(navigateToPage, "", "PageURL");
     switch (navigateToPage) {
         case "Home":
-            cy.visit(common_data.URL.homePageURL);
-            break;
         case "Login":
-            cy.visit(common_data.URL.loginPageURL);
-            break;
         case "Vacancies":
-            cy.visit(common_data.URL.vacanciesPageURL);
-            break;
         case "Registration":
-            cy.visit(common_data.URL.registrationPageURL);
+            cy.visit(common_data.URL[data]);
             break;
         default:
             throw new Error(`Unknown page name data specified: ${navigateToPage}`);
     }
 })
+
+Then("I should see that {string} field on the 'Login' page is displayed", (nameInputField) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(nameInputField, "", "InputField");
+    switch (nameInputField) {
+        case "Email":
+        case "Password":
+            cy.get(loginPage_selectors[selector]).should("be.visible");
+            break;
+        default:
+            throw new Error(`Unknown field name data specified: ${nameInputField}`);
+    }
+});
 
 When("I wait for {string} seconds", (waitingTime) => {
     switch (waitingTime) {
@@ -84,18 +91,5 @@ When("I wait for {string} seconds", (waitingTime) => {
             break;
         default:
             throw new Error(`Unknown time data is specified: ${waitingTime}`);
-    }
-});
-
-Then("I should see that {string} field on the 'Login' page is displayed", (nameInputField) => {
-    switch (nameInputField) {
-        case "Email":
-            cy.get(loginPage_selectors.emailInputField).should("be.visible");
-            break;
-        case "Password":
-            cy.get(loginPage_selectors.passwordInputField).should("be.visible");
-            break;
-        default:
-            throw new Error(`Unknown field name data specified: ${nameInputField}`);
     }
 });

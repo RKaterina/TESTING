@@ -11,7 +11,7 @@ export default class Common_selectors {
     titleOurTeamPage = "body > div.container-main > section > div > div.our-team--main.before-footer-large.before-footer-small > div.our-team--title.padding > div > h1"
     titleContactsPage = "body > div.container-main > div.contact > div > div > div.blocks-left > h2"
     titlePlatformRulesOfficialDocsPage = "#our-platform-rules > div.accordion-title.js-accordion > span"
-    titlePravicyPolicyOfficialDocsPage = "#privacy-policy > div.accordion-title.js-accordion > span"
-    
-    
+    titlePrivacyPolicyOfficialDocsPage = "#privacy-policy > div.accordion-title.js-accordion > span"
+
+
 }

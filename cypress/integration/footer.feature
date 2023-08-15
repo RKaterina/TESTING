@@ -47,5 +47,5 @@ Feature: Verification for Footer of Bloomenty
     Then I should see that "Platform rules" on the 'Official docs' page is displayed
 
   Scenario: Verify item 'Pravicy policy' for official docs in the footer
-    When I press item "Pravicy policy" for official docs in the footer
-    Then I should see that "Pravicy policy" on the 'Official docs' page is displayed
+    When I press item "Privacy policy" for official docs in the footer
+    Then I should see that "Privacy policy" on the 'Official docs' page is displayed

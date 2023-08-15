@@ -3,8 +3,10 @@ import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor"
 import Header_selectors from "../selectors/header_selectors.js";
 import Footer_selectors from "../selectors/footer_selectors.js";
 import Common_selectors from "../selectors/common_selectors.js";
+import Common_page from "../pageObjects/common_page.js";
 
 
+const common_page = new Common_page();
 const header_selectors = new Header_selectors();
 const footer_selectors = new Footer_selectors();
 const common_selectors = new Common_selectors();
@@ -33,18 +35,14 @@ before(() => {
 });
 
 When("I should see that {string} in the footer is displayed", (footerItemMenu) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(footerItemMenu, "footer", "");
+
     switch (footerItemMenu) {
         case "Bloomenty logo":
-            cy.get(footer_selectors.footerLogo).should("be.visible");
-            break;
         case "Navigation title":
-            cy.get(footer_selectors.footerTitleNavigation).should("be.visible");
-            break;
         case "Official docs title":
-            cy.get(footer_selectors.footerTitleOfficialDocs).should("be.visible");
-            break;
         case "Bloomenty copyright":
-            cy.get(footer_selectors.footerCopyright).should("be.visible");
+            cy.get(footer_selectors[selector]).should("be.visible");
             break;
         default:
             throw new Error(`Unknown item name data specified: ${footerItemMenu}`);
@@ -52,33 +50,18 @@ When("I should see that {string} in the footer is displayed", (footerItemMenu) =
 });
 
 When("I press item {string} in the footer navigation", (footerItemNavigation) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(footerItemNavigation, "footerNavigation", "");
     switch (footerItemNavigation) {
         case "About us":
-            cy.get(footer_selectors.footerNavigationAboutUs).click();
-            break;
         case "News":
-            cy.get(footer_selectors.footerNavigationNews).click();
-            break;
         case "Blog":
-            cy.get(footer_selectors.footerNavigationBlog).click();
-            break;
         case "Forum":
-            cy.get(footer_selectors.footerNavigationForum).click();
-            break;
         case "Our team":
-            cy.get(footer_selectors.footerNavigationOurTeam).click();
-            break;
         case "Contacts":
-            cy.get(footer_selectors.footerNavigationContacts).click();
-            break;
         case "My account":
-            cy.get(footer_selectors.footerNavigationMyAccount).click();
-            break;
         case "News":
-            cy.get(footer_selectors.footerNavigationNews).click();
-            break;
         case "Vacancies":
-            cy.get(footer_selectors.footerNavigationVacancies).click();
+            cy.get(footer_selectors[selector]).click();
             break;
         default:
             throw new Error(`Unknown item name data specified: ${footerItemNavigation}`);
@@ -86,12 +69,11 @@ When("I press item {string} in the footer navigation", (footerItemNavigation) =>
 });
 
 When("I press item {string} for official docs in the footer", (footerItemOfficialDocs) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(footerItemOfficialDocs, "footerOfficialDocs", "");
     switch (footerItemOfficialDocs) {
         case "Platform rules":
-            cy.get(footer_selectors.footerOfficialDocsPlatformRules).click();
-            break;
-        case "Pravicy policy":
-            cy.get(footer_selectors.footerOfficialDocsPrivacyPolicy).click();
+        case "Privacy policy":
+            cy.get(footer_selectors[selector]).click();
             break;
         default:
             throw new Error(`Unknown item name data specified: ${footerItemOfficialDocs}`);
@@ -99,14 +81,12 @@ When("I press item {string} for official docs in the footer", (footerItemOfficia
 });
 
 When("I should see that {string} on the 'Official docs' page is displayed", (ItemOfficialDocsPage) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(ItemOfficialDocsPage, "title", "OfficialDocsPage");
     switch (ItemOfficialDocsPage) {
         case "Platform rules":
-            cy.get(common_selectors.titlePlatformRulesOfficialDocsPage).should("be.visible");
+        case "Privacy policy":
+            cy.get(common_selectors[selector]).should("be.visible");
             break;
-        case "Pravicy policy":
-            cy.get(common_selectors.titlePravicyPolicyOfficialDocsPage).should("be.visible");
-            break;
-        
         default:
             throw new Error(`Unknown item name data specified: ${ItemOfficialDocsPage}`);
     }

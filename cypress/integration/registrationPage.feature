@@ -6,7 +6,7 @@ Feature: Verification of Bloomenty Registration page
     And I press 'Accept' button on the 'Cookies' page
     When I navigate to "Registration" page
     And I fill in the "Nickname" field on the 'Registration' page with Correct data
-    
+
   Scenario: Verify 'Name' field from the Registration page
     When I fill in the "Name" field on the 'Registration' page with Correct data
 
