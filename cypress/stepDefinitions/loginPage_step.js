@@ -24,7 +24,7 @@ Then("I should see that 'Login' page URL is correct", () => {
     cy.url().should('include', loginPage_data.URLs.myAccountURL);
 });
 
-When("I press 'Login' button on the 'Login' page", () => {
+When("I press 'Submit' button on the 'Login' page", () => {
     cy.get(loginPage_selectors.submitButton).click();
 });
 
@@ -45,25 +45,25 @@ Then("I should see 'Email incorrect' error message", () => {
 When("I fill in the 'Email' field on the 'Login' page with {string} data", (emailInputData) => {
     switch (emailInputData) {
         case "Correct":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField,loginPage_data.emailCorrectData);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailCorrectData);
             break;
         case "No symbols before At":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField,loginPage_data.emailData.incorrectEmailData.noSymbolsBeforeAt);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noSymbolsBeforeAt);
             break;
         case "No symbols after At":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField,loginPage_data.emailData.incorrectEmailData.noSymbolsAfterAt);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noSymbolsAfterAt);
             break;
         case "No symbols after dot":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField,loginPage_data.emailData.incorrectEmailData.noSymbolsAfterDot);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noSymbolsAfterDot);
             break;
         case "No dot":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField,loginPage_data.emailData.incorrectEmailData.noDot);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noDot);
             break;
         case "No At":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField,loginPage_data.emailData.incorrectEmailData.noAt);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.noAt);
             break;
         case "One symbol after dot":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField,loginPage_data.emailData.incorrectEmailData.oneSymbolAfterDot);
+            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailData.incorrectEmailData.oneSymbolAfterDot);
             break;
         default:
             throw new Error(`Unknown email data is specified: ${emailInputData}`);
@@ -73,22 +73,22 @@ When("I fill in the 'Email' field on the 'Login' page with {string} data", (emai
 When("I fill in the 'Password' field on the 'Login' page with {string} data", (passwordInputData) => {
     switch (passwordInputData) {
         case "Correct":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField,loginPage_data.passwordCorrectData);
+            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordCorrectData);
             break;
         case "No symbols":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField,loginPage_data.passwordData.incorrectPasswordData.noSymbols);
+            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.noSymbols);
             break;
         case "One dot":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField,loginPage_data.passwordData.incorrectPasswordData.oneDot);
+            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.oneDot);
             break;
         case "One symbol":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField,loginPage_data.passwordData.incorrectPasswordData.oneSymbol);
+            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.oneSymbol);
             break;
         case "No one symbol":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField,loginPage_data.passwordData.incorrectPasswordData.noOneSymbol);
+            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.noOneSymbol);
             break;
         case "Upper case symbols":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField,loginPage_data.passwordData.incorrectPasswordData.upperCaseSymbols);
+            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordData.incorrectPasswordData.upperCaseSymbols);
             break;
         default:
             throw new Error(`Unknown password data is specified: ${passwordInputData}`);

@@ -12,7 +12,8 @@ export default class Header_selectors {
     headerServicesTravelClubSubMenu = "[data-cy=headerServicesTravelClubSubMenu]"
     headerServicesNewsSubMenu = "[data-cy=headerServicesNewsSubMenu]"
     headerServicesBlogSubMenu = "[data-cy=headerServicesBlogSubMenu]"
+    headerLoginButton = '[data-cy="headerLoginButton"]'
     headerLogoutButton = "[data-cy=headerMyAccountAvatarLogoutSubMenu]"
-    
-    
+
+
 }

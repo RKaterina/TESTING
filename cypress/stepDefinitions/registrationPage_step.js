@@ -26,30 +26,6 @@ before(() => {
     });
 });
 
-// When("I fill in the 'Nickname' field on the 'Registration' page with Correct data", () => {
-//     var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.nickNameData.correctNickNameData);
-
-//     cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.nickNameData.correctNickNameData[rnd])
-
-//     common_page.typeDataForInputField(registration_selectors.nickNameInputField, registrationPage_data.nickNameData.correctNickNameData[rnd]);
-// })
-
-// When("I fill in the 'Name' field on the 'Registration' page with Correct data", () => {
-//     var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.nameData.correctNameData);
-
-//     cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.nameData.correctNameData[rnd])
-
-//     common_page.typeDataForInputField(registration_selectors.nameInputField, registrationPage_data.nameData.correctNameData[rnd]);
-//   })
-
-//   When("I fill in the 'Surname' field on the 'Registration' page with Correct data", () => {
-//     var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.surNameData.correctSurNameData);
-
-//     cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.surNameData.correctSurNameData[rnd])
-
-//     common_page.typeDataForInputField(registration_selectors.surNameInputField, registrationPage_data.surNameData.correctSurNameData[rnd]);
-//   })
-
 When("I fill in the {string} field on the 'Registration' page with Correct data", (nameInputFieldRegistration) => {
     switch (nameInputFieldRegistration) {
         case "Nickname":
@@ -67,11 +43,11 @@ When("I fill in the {string} field on the 'Registration' page with Correct data"
             common_page.typeDataForInputField(registration_selectors.nameInputField, registrationPage_data.nameData.correctNameData[rnd]);
             break;
         case "Surname":
-            var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.surNameData.correctSurNameData);
+            var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.surnameData.correctSurnameData);
 
-            cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.surNameData.correctSurNameData[rnd])
+            cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.surnameData.correctSurnameData[rnd])
 
-            common_page.typeDataForInputField(registration_selectors.surnameInputField, registrationPage_data.surNameData.correctSurNameData[rnd]);
+            common_page.typeDataForInputField(registration_selectors.surnameInputField, registrationPage_data.surnameData.correctSurnameData[rnd]);
             break;
         default:
             throw new Error(`Unknown field name data specified: ${nameInputFieldRegistration}`);

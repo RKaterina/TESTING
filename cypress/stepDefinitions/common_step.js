@@ -55,16 +55,16 @@ before(() => {
 When("I navigate to {string} page", (navigateToPage) => {
     switch (navigateToPage) {
         case "Home":
-            cy.visit(homePage_data.homePageURL);
+            cy.visit(common_data.URL.homePageURL);
             break;
         case "Login":
-            cy.visit(loginPage_data.URLs.loginPageURL);
+            cy.visit(common_data.URL.loginPageURL);
             break;
         case "Vacancies":
-            cy.visit(header_data.vacanciesPageURL);
+            cy.visit(common_data.URL.vacanciesPageURL);
             break;
         case "Registration":
-            cy.visit(registrationPage_data.registrationPageUrl);
+            cy.visit(common_data.URL.registrationPageURL);
             break;
         default:
             throw new Error(`Unknown page name data specified: ${navigateToPage}`);

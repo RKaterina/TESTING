@@ -33,11 +33,11 @@ Feature: Verification for Footer of Bloomenty
     When I press item "My account" in the footer navigation
     And I fill in the 'Email' field on the 'Login' page with "Correct" data
     And I fill in the 'Password' field on the 'Login' page with "Correct" data
-    And I press 'Login' button on the 'Login' page
+    And I press 'Submit' button on the 'Login' page
     Then I should see that "My account" title on the "My account" page is displayed
 
   Scenario: Verify item 'Forum' in the footer navigation
-    Given I press 'Logout' button in the header
+    Given I press "Logout" button on the header
     When I press item "Forum" in the footer navigation
     Then I should see that "Forum" title on the "Forum" page is displayed
 

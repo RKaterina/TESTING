@@ -1,5 +1,13 @@
 {
-  "twoSecond": 2000,
+"URL": {
+    "vacanciesPageURL": "https://bloomenty.com/nl/vacancies",
+    "homePageURL": "https://bloomenty.com/nl/home",
+    "loginPageURL": "https://bloomenty.com/nl/myaccount/login",
+    "registrationPageURL": "https://bloomenty.com/nl/registration"
+
+},    
+"twoSecond": 2000,
   "threeSecond": 3000,
   "sevenSecond": 7000
+
 }

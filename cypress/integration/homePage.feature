@@ -6,7 +6,7 @@ Feature: Verification of Bloomenty Home page
     Then I should see that 'Cookies' page is displayed
 
   Scenario: Verify 'Cancel' button on the 'Cookies' page
-    When I press 'Cancel' button on the 'Cookies' page
+    When I press "Cancel" button on the 'Cookies' page
     Then I should see that 'Cookies' page is Not displayed
 
   Scenario: Verify that 'Cookies' page is Not displayed after Page Refresh
@@ -40,7 +40,7 @@ Feature: Verification of Bloomenty Home page
 
   Scenario: Verify 'Accept' button on the 'Cookies' page
     When I clear all Cookies
-    And I press 'Accept' button on the 'Cookies' page
+    And I press "Accept" button on the 'Cookies' page
     Then I should see that 'Cookies' page is Not displayed
 
   Scenario: Verify correct 'Online platform' page header

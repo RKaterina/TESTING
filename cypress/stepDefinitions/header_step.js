@@ -2,8 +2,10 @@ import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor"
 
 import Header_selectors from "../selectors/header_selectors.js";
 import Common_selectors from "../selectors/common_selectors.js";
+import Common_Page from "../pageObjects/common_page.js";
 
 
+const common_Page = new Common_Page();
 const header_selectors = new Header_selectors();
 const common_selectors = new Common_selectors();
 
@@ -45,10 +47,6 @@ When("I should see that {string} on the header is displayed", (headerItemMenu) =
         default:
             throw new Error(`Unknown item name data specified: ${headerItemMenu}`);
     }
-});
-
-When("I press 'Logout' button in the header", () => {
-    cy.get(header_selectors.headerLogoutButton).click({ force: true });
 });
 
 When("I press item {string} for 'Services' header menu", (headerItemSubMenu) => {
@@ -101,5 +99,15 @@ When("I should see that {string} title on the {string} page is displayed", (titl
     }
 });
 
+When("I press {string} button on the header", (headerButtonName) => {
+    const selector = common_Page.removeSpaceAndApplyCamelCase(headerButtonName, "header", "Button");
+    switch (headerButtonName) {
+        case "Login":
+        case "Logout":
+            cy.get(header_selectors[selector]).click({ force: true });
+            break;
+        default:
+            throw new Error(`Unknown button name data specified: ${headerButtonName}`);
+    }
 
-
+});

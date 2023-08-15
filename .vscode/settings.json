@@ -6,5 +6,6 @@
     ],
     "cucumber.glue": [
         "cypress/stepDefinitions/**/*.js"
-    ]
+    ],
+    "editor.formatOnSave": true
 }

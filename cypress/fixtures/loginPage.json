@@ -1,7 +1,6 @@
 {
   "URLs":{
-    "myAccountURL": "/myaccount",
-    "loginPageURL": "https://bloomenty.com/nl/myaccount/login"
+    "myAccountURL": "/myaccount"
 
   },
   "emailData":{

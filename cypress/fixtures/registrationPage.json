@@ -31,12 +31,12 @@
             "aQWERTY UIOPKASD FGHJKLZX CVBN MQWER TYUICV BTYDFa"
           ]
         },
-        "surNameData": {
-            "incorrectSurNameData": {
-                "surNameInput1symbols": "",
-                "surNameInput51symbols": ""
+        "surnameData": {
+            "incorrectSurnameData": {
+                "surnameInput1symbols": "",
+                "surnameInput51symbols": ""
             },
-            "correctSurNameData": [
+            "correctSurnameData": [
                 "asjkfh asgsadg",
                 "weyerwy fghdf weryery",
                 "sdf-wtwe",
@@ -46,7 +46,5 @@
                 "AQWERTYUIOPKASDFGHJKLZXCVBNMQWERTYUISDFGHXCVBTYDFA",
                 "aQWERTY UIOPKASD FGHJKLZX CVBN MQWER TYUICV BTYDFa"
               ]
-            },
-        
-    "registrationPageUrl": "https://bloomenty.com/nl/registration"
+            }
   }
