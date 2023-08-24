@@ -12,6 +12,8 @@ const header_selectors = new Header_selectors();
 const common_page = new Common_page();
 const homePage_page = new HomePage_page();
 
+
+
 let loginPage_data; // Used us a link to the fixtures data
 
 before(() => {
