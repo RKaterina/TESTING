@@ -6,7 +6,7 @@ export default class LoginPage_selectors {
     emailInputField = "[data-cy=emailInputField]"
     passwordInputField = "[data-cy=passwordInputField]"
     submitButton = "[data-cy=loginFormSubmitButton]"
-    emailIncorrectErrorMessage = ".alert"
-    
-  
+    emailIncorrectErrorMessage = "[data-cy=contentWelcomeSectionLoginPage]"
+
+
 }

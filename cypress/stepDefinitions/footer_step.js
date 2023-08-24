@@ -36,7 +36,6 @@ before(() => {
 
 When("I should see that {string} in the footer is displayed", (footerItemMenu) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(footerItemMenu, "footer", "");
-
     switch (footerItemMenu) {
         case "Bloomenty logo":
         case "Navigation title":

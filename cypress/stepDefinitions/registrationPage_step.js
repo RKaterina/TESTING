@@ -29,6 +29,9 @@ before(() => {
 When("I fill in the {string} field on the 'Registration' page with Correct data", (nameInputFieldRegistration) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "InputField");
     const data = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "Data");
+
+    cy.log("Наш селектор = " + selector + "; Наши данные Json = " + data)
+
     switch (nameInputFieldRegistration) {
         case "Nickname":
         case "Name":
