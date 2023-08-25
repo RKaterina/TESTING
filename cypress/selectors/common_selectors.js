@@ -12,6 +12,7 @@ export default class Common_selectors {
     titleContactsPage = "body > div.container-main > div.contact > div > div > div.blocks-left > h2"
     titlePlatformRulesOfficialDocsPage = "#our-platform-rules > div.accordion-title.js-accordion > span"
     titlePrivacyPolicyOfficialDocsPage = "#privacy-policy > div.accordion-title.js-accordion > span"
+    titlePrivacyPolicyOfficialDocsPage = "#privacy-policy > div.accordion-title.js-accordion > span"
 
 
 }
