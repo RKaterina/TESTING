@@ -13,6 +13,7 @@ export default class Common_selectors {
     titlePlatformRulesOfficialDocsPage = "#our-platform-rules > div.accordion-title.js-accordion > span"
     titlePrivacyPolicyOfficialDocsPage = "#privacy-policy > div.accordion-title.js-accordion > span"
     titlePrivacyPolicyOfficialDocsPage = "#privacy-policy > div.accordion-title.js-accordion > span"
+    titlePrivacyPolicyOfficialDocsPage = "#privacy-policy > div.accordion-title.js-accordion > span"
 
 
 }
