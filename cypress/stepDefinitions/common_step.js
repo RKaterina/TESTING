@@ -12,7 +12,6 @@ const header_selectors = new Header_selectors();
 const common_page = new Common_page();
 const homePage_page = new HomePage_page();
 
-//gfgfgfgfgfg
 
 let loginPage_data; // Used us a link to the fixtures data
 
@@ -56,6 +55,9 @@ before(() => {
 
 When("I navigate to {string} page", (navigateToPage) => {
     const data = common_page.removeSpaceAndApplyCamelCase(navigateToPage, "", "PageURL");
+
+    cy.log("Наши данные Json = " + data)
+
     switch (navigateToPage) {
         case "Home":
         case "Login":
@@ -70,6 +72,9 @@ When("I navigate to {string} page", (navigateToPage) => {
 
 Then("I should see that {string} field on the 'Login' page is displayed", (nameInputField) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(nameInputField, "", "InputField");
+
+    cy.log("Наш селектор = " + selector)
+
     switch (nameInputField) {
         case "Email":
         case "Password":

@@ -43,7 +43,7 @@ module.exports = defineConfig({
     viewportHeight: 1024,
     chromeWebSecurity: false,
     e2e: {
-        // experimentalRunAllSpecs: true,
+        //experimentalRunAllSpecs: true,
         testIsolation: false,
         specPattern: "cypress/integration/**/*.feature",
         setupNodeEvents,

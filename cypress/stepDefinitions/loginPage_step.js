@@ -44,6 +44,9 @@ Then("I should see 'Email incorrect' error message", () => {
 
 When("I fill in the 'Email' field on the 'Login' page with {string} data", (emailInputData) => {
     const data = common_page.removeSpaceAndApplyCamelCase(emailInputData, "", "");
+
+    cy.log("Наши данные Json = " + data)
+
     switch (emailInputData) {
         case "Correct":
             common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailCorrectData);
@@ -63,6 +66,9 @@ When("I fill in the 'Email' field on the 'Login' page with {string} data", (emai
 
 When("I fill in the 'Password' field on the 'Login' page with {string} data", (passwordInputData) => {
     const data = common_page.removeSpaceAndApplyCamelCase(passwordInputData, "", "");
+
+    cy.log("Наши данные Json = " + data)
+
     switch (passwordInputData) {
         case "Correct":
             common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordCorrectData);

@@ -67,6 +67,9 @@ When("I should see correct 'Online platform' page header", () => {
 
 When("I press {string} button on the 'Cookies' page", (buttonName) => {
     const selector = common_Page.removeSpaceAndApplyCamelCase(buttonName, "", "ButtonCookiesPage");
+
+    cy.log("Наш селектор = " + selector)
+
     switch (buttonName) {
         case "Cancel":
         case "Accept":
