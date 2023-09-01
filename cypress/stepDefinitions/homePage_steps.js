@@ -49,12 +49,19 @@ When("I refresh the page", () => {
     cy.reload();
 });
 
-When("I press 'Back' button in the Browser", () => {
-    cy.go("back");
-});
+When("I press {string} button in the Browser", (browserButton) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(browserButton, "browser", "Button");
 
-When("I press 'Forward' button in the Browser", () => {
-    cy.go("forward");
+    cy.log("Наш селектор = " + selector)
+
+    switch (browserButton) {
+        case "Back":
+        case "Forward":
+            cy.go(homePage_selectors[selector]);
+            break;
+        default:
+            throw new Error(`Unknown button name data specified: ${browserButton}`);
+    }
 });
 
 Then("I should see that 'CookiesPage' link is correct", () => {
