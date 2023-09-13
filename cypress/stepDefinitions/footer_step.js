@@ -34,19 +34,30 @@ before(() => {
     });
 });
 
-When("I should see that {string} in the footer is displayed", (footerItemMenu) => {
-    const selector = common_page.removeSpaceAndApplyCamelCase(footerItemMenu, "footer", "");
-    switch (footerItemMenu) {
-        case "Bloomenty logo":
-        case "Navigation title":
-        case "Official docs title":
-        case "Bloomenty copyright":
-            cy.get(footer_selectors[selector]).should("be.visible");
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${footerItemMenu}`);
+// When("I should see that {string} in the footer is displayed", (footerItemMenu) => {
+//     const selector = common_page.removeSpaceAndApplyCamelCase(footerItemMenu, "footer", "");
+//     switch (footerItemMenu) {
+//         case "Bloomenty logo":
+//         case "Navigation title":
+//         case "Official docs title":
+//         case "Bloomenty copyright":
+//             cy.get(footer_selectors[selector]).should("be.visible");
+//             break;
+//         default:
+//             throw new Error(`Unknown item name data specified: ${footerItemMenu}`);
+//     }
+// });
+
+When("I should see that Four unclickable items in the footer is displayed", () => {
+    for (let i = 0; i < footer_data.footerItemMenu.length; i++) {
+
+        cy.log("Index array element = " + i + "; Value array element = " + footer_data.footerItemMenu[i])
+
+        const selector = footer_data.footerItemMenu[i];
+
+        cy.get(footer_selectors[selector]).should("be.visible");
     }
-});
+})
 
 When("I press item {string} in the footer navigation", (footerItemNavigation) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(footerItemNavigation, "footerNavigation", "");

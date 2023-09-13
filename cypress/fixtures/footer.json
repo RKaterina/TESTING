@@ -1,4 +1,8 @@
 {
-  "name1": "data1",
-  "name2": "data2"
+  "footerItemMenu": [
+"footerBloomentyLogo",
+"footerNavigationTitle",
+"footerOfficialDocsTitle",
+"footerBloomentyCopyright"
+  ]
 }

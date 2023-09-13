@@ -1,4 +1,33 @@
 {
+    "placeholdersData":{
+"placeholdersInputFields":[
+    "Имя",
+    "Фамилия",
+    "Никнейм",
+    "Email"
+],
+"placeholdersSelectors":[
+    "nameInputField",
+    "surnameInputField",
+    "nicknameInputField",
+    "emailInputField",
+    "firstPasswordInputField",
+    "secondPasswordInputField"  
+],
+"registrationInputData":[
+    "Katya",
+    "Rybalka",
+    "Rkate",
+    "bloom.ekaterina.dai+111@gmail.com",
+    "test111",
+    "test111"
+],
+"registrationCheckboxes":[
+    "newsLetterCheckbox",
+    "platformRulesCheckbox"
+]
+    },
+
 "registrationData": {
 "correctData": {
     "nicknameData": [

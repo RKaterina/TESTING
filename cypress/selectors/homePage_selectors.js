@@ -9,6 +9,8 @@ export default class HomePage_selectors {
     homePageContainer = ".first-block-inner"
     vacanciesSubMenu = "/html/body/div/header/div/div[2]/nav/span[1]/ul/li[1]"
     itemCookiesPage = "itemCookiesPage"
+    browserBackButton = "back"
+    browserForwardButton = "forward"
 
 
 }

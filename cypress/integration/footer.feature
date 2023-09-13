@@ -4,10 +4,7 @@ Feature: Verification for Footer of Bloomenty
     When I navigate to "Home" page
     And I wait for "3" seconds
     And I press 'Accept' button on the 'Cookies' page
-    Then I should see that "Bloomenty logo" in the footer is displayed
-    And I should see that "Navigation title" in the footer is displayed
-    And I should see that "Official docs title" in the footer is displayed
-    And I should see that "Bloomenty copyright" in the footer is displayed
+    Then I should see that Four unclickable items in the footer is displayed
 
   Scenario: Verify item 'About us' in the footer navigation
     When I press item "About us" in the footer navigation

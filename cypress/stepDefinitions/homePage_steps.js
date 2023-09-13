@@ -1,11 +1,11 @@
 import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 import HomePagePage from "../pageObjects/homePage_page.js";
-import Common_Page from "../pageObjects/common_page.js";
+import Common_page from "../pageObjects/common_page.js";
 import HomePage_selectors from "../selectors/homePage_selectors.js";
 
 
 const homePagePage = new HomePagePage();
-const common_Page = new Common_Page();
+const common_page = new Common_page();
 const homePage_selectors = new HomePage_selectors();
 
 
@@ -73,7 +73,7 @@ When("I should see correct 'Online platform' page header", () => {
 });
 
 When("I press {string} button on the 'Cookies' page", (buttonName) => {
-    const selector = common_Page.removeSpaceAndApplyCamelCase(buttonName, "", "ButtonCookiesPage");
+    const selector = common_page.removeSpaceAndApplyCamelCase(buttonName, "", "ButtonCookiesPage");
 
     cy.log("Наш селектор = " + selector)
 
