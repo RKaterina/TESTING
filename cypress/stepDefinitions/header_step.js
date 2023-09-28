@@ -15,10 +15,7 @@ before(() => {
     cy.fixture("/header.json").then((headerDataFile) => {
         header_data = headerDataFile;
     });
-});
 
-
-before(() => {
     cy.visit("https://bloomenty.com/nl/home");
     cy.session("cookie", () => {
     });
@@ -30,60 +27,60 @@ When("I should see that 'Bloomenty logo' on the header is displayed", () => {
 
 When("I should see that {string} menu on the header is displayed", (headerItemMenu) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(headerItemMenu, "header", "Menu");
-    switch (headerItemMenu) {
-        case "Services":
-        case "Encyclopedia":
-        case "Forum":
-        case "About us":
-        case "Active language":
-            cy.get(header_selectors[selector]).should("be.visible");
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${headerItemMenu}`);
-    }
+    // switch (headerItemMenu) {
+    //     case "Services":
+    //     case "Encyclopedia":
+    //     case "Forum":
+    //     case "About us":
+    //     case "Active language":
+    cy.get(header_selectors[selector]).should("be.visible");
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item name data specified: ${headerItemMenu}`);
+    // }
 });
 
 When("I press item {string} for 'Services' header menu", (headerItemSubMenu) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(headerItemSubMenu, "headerServices", "SubMenu");
-    switch (headerItemSubMenu) {
-        case "Vacancies":
-        case "TravelClub":
-        case "News":
-        case "Blog":
-            cy.get(header_selectors[selector]).click({ force: true });
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${headerItemSubMenu}`);
-    }
+    // switch (headerItemSubMenu) {
+    //     case "Vacancies":
+    //     case "TravelClub":
+    //     case "News":
+    //     case "Blog":
+    cy.get(header_selectors[selector]).click({ force: true });
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item name data specified: ${headerItemSubMenu}`);
+    // }
 });
 
 When("I should see that {string} title on the {string} page is displayed", (titleOfThePage) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(titleOfThePage, "title", "Page");
-    switch (titleOfThePage) {
-        case "Vacancies":
-        case "News":
-        case "Blog":
-        case "My account":
-        case "About us":
-        case "Forum":
-        case "Our team":
-        case "Contacts":
-            cy.get(common_selectors[selector]).should("be.visible");
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${titleOfThePage}`);
-    }
+    // switch (titleOfThePage) {
+    //     case "Vacancies":
+    //     case "News":
+    //     case "Blog":
+    //     case "My account":
+    //     case "About us":
+    //     case "Forum":
+    //     case "Our team":
+    //     case "Contacts":
+    cy.get(common_selectors[selector]).should("be.visible");
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item name data specified: ${titleOfThePage}`);
+    // }
 });
 
 When("I press {string} button on the header", (headerButtonName) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(headerButtonName, "header", "Button");
-    switch (headerButtonName) {
-        case "Login":
-        case "Logout":
-            cy.get(header_selectors[selector]).click({ force: true });
-            break;
-        default:
-            throw new Error(`Unknown button name data specified: ${headerButtonName}`);
-    }
+    // switch (headerButtonName) {
+    //     case "Login":
+    //     case "Logout":
+    cy.get(header_selectors[selector]).click({ force: true });
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown button name data specified: ${headerButtonName}`);
+    // }
 
 });

@@ -10,6 +10,7 @@ export default class RegistrationPage_selectors {
     secondPasswordInputField = "#user_registration_password_second"
     newsLetterCheckbox = "#user_registration_isSubscribed"
     platformRulesCheckbox = "#agreement"
+    countryDropdown = ".nice-select"
 
 
 

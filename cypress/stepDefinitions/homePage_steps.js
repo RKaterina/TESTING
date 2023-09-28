@@ -16,21 +16,25 @@ before(() => {
     cy.fixture("/homePage.json").then((homeDataFile) => {
         homePage_data = homeDataFile;
     });
-});
 
-
-before(() => {
     cy.visit("https://bloomenty.com/nl/home");
     cy.session("cookie", () => {
     });
 });
 
-When("I should see that 'Cookies' page is displayed", () => {
-    homePagePage.checkCookiesPageIsVisible();
-});
 
-When("I should see that 'Cookies' page is Not displayed", () => {
-    homePagePage.checkCookiesPageIsNotVisible();
+When("I should see that 'Cookies' page is {string}", (visibility) => {
+    switch (visibility) {
+        case "Displayed":
+            homePagePage.checkCookiesPageVisibility(true);
+            break;
+        case "Not displayed":
+            homePagePage.checkCookiesPageVisibility(false);
+            break;
+        default:
+            throw new Error(`Unknown status visibility specified: ${visibility}`);
+    }
+
 });
 
 When("I should see that 'Cookies rules' is opened", () => {

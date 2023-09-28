@@ -3,12 +3,14 @@ import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor"
 import LoginPage_selectors from "../selectors/loginPage_selectors.js";
 import HomePage_selectors from "../selectors/homePage_selectors.js";
 import Header_selectors from "../selectors/header_selectors.js";
+import Common_selectors from "../selectors/common_selectors.js";
 import Common_page from "../pageObjects/common_page.js";
 import HomePage_page from "../pageObjects/homePage_page.js";
 
 const loginPage_selectors = new LoginPage_selectors();
 const homePage_selectors = new HomePage_selectors();
 const header_selectors = new Header_selectors();
+const common_selectors = new Common_selectors();
 const common_page = new Common_page();
 const homePage_page = new HomePage_page();
 
@@ -27,31 +29,24 @@ before(() => {
     cy.fixture("/homePage.json").then((homeDataFile) => {
         homePage_data = homeDataFile;
     });
-});
 
-let header_data; // Used us a link to the fixtures data
-
-before(() => {
     cy.fixture("/header.json").then((headerDataFile) => {
         header_data = headerDataFile;
     });
-});
 
-let common_data; // Used us a link to the fixtures data
-
-before(() => {
     cy.fixture("/common.json").then((commonDataFile) => {
         common_data = commonDataFile;
     });
-});
 
-let registrationPage_data; // Used us a link to the fixtures data
-
-before(() => {
     cy.fixture("/registrationPage.json").then((registrationPageDataFile) => {
         registrationPage_data = registrationPageDataFile;
     });
 });
+
+let header_data; // Used us a link to the fixtures data
+let common_data; // Used us a link to the fixtures data
+let registrationPage_data; // Used us a link to the fixtures data
+
 
 When("I navigate to {string} page", (navigateToPage) => {
     const data = common_page.removeSpaceAndApplyCamelCase(navigateToPage, "", "PageURL");
@@ -63,6 +58,8 @@ When("I navigate to {string} page", (navigateToPage) => {
         case "Login":
         case "Vacancies":
         case "Registration":
+        case "Blog":
+        case "News":
             cy.visit(common_data.URL[data]);
             break;
         default:
@@ -98,5 +95,18 @@ When("I wait for {string} seconds", (waitingTime) => {
             break;
         default:
             throw new Error(`Unknown time data is specified: ${waitingTime}`);
+    }
+});
+
+When("I should see that BreadCrumb is {string} for the {string} page", (presence, pageName) => {
+    switch (presence) {
+        case "Displayed":
+            cy.get(common_selectors.breadcrumbPage).should("be.visible");
+            break;
+        case "Not displayed":
+            cy.get(common_selectors.breadcrumbPage).should("not.exist");
+            break;
+        default:
+            throw new Error(`Unknown presence is specified: ${presence}`);
     }
 });

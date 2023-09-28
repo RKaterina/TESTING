@@ -8,6 +8,45 @@
   "italiëItemAllCountriesVacanciesPage": "Italië",
   "aalsmeerItemAllCitiesVacanciesPage": "Elyon flowers (Aalsmeer)",
   "gdańskItemAllCitiesVacanciesPage": "Projekt kwiaty (Gdańsk)",
-  "milanoItemAllCitiesVacanciesPage": "Wedding house (Milano)"
+  "milanoItemAllCitiesVacanciesPage": "Wedding house (Milano)",
+  "dropdownsData":{
+    "vacanciesList":[
+        "Account manager/florist",
+        "Event Specialist",
+        "Florist",
+        "Florist assistant",
+        "Florist designer",
+        "Florist-decorator",
+        "Freelance florist",
+        "Gardener",
+        "General worker",
+        "Greenhouse worker",
+        "Wedding coordinator"
+    ],
+    "countriesList":[
+        "Nederland",
+        "België",
+        "Kazachstan",
+        "Groot Brittanië",
+        "Duitsland",
+        "Ierland",
+        "Moldavië",
+        "Spanje",
+        "Canada",
+        "Polen",
+        "Italië"
+    ],
+    "citiesList":[
+        "Aalsmeer",
+        "Amsterdam",
+        "Barcelona",
+        "Berlin",
+        "Copenhagen",
+        "Dubai",
+        "Gdańsk",
+        "Milano",
+        "Paris"
+    ]
+  }
 
 }

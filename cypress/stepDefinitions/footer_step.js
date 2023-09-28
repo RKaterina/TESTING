@@ -17,22 +17,18 @@ before(() => {
     cy.fixture("/header.json").then((headerDataFile) => {
         header_data = headerDataFile;
     });
-});
 
-let footer_data; // Used us a link to the fixtures data
-
-before(() => {
     cy.fixture("/footer.json").then((footerDataFile) => {
         footer_data = footerDataFile;
     });
-});
 
-
-before(() => {
     cy.visit("https://bloomenty.com/nl/home");
     cy.session("cookie", () => {
     });
 });
+
+let footer_data; // Used us a link to the fixtures data
+
 
 // When("I should see that {string} in the footer is displayed", (footerItemMenu) => {
 //     const selector = common_page.removeSpaceAndApplyCamelCase(footerItemMenu, "footer", "");

@@ -1,12 +1,12 @@
 {
-    "placeholdersData":{
+    "registrationPageData":{
 "placeholdersInputFields":[
     "Имя",
     "Фамилия",
     "Никнейм",
     "Email"
 ],
-"placeholdersSelectors":[
+"inputFieldSelectors":[
     "nameInputField",
     "surnameInputField",
     "nicknameInputField",
@@ -14,7 +14,7 @@
     "firstPasswordInputField",
     "secondPasswordInputField"  
 ],
-"registrationInputData":[
+"registrationInputFillInData":[
     "Katya",
     "Rybalka",
     "Rkate",
@@ -25,6 +25,25 @@
 "registrationCheckboxes":[
     "newsLetterCheckbox",
     "platformRulesCheckbox"
+],
+"countriesList":[
+    "Австралия",
+    "Бельгия",
+    "Дания",
+    "Германия",
+    "Франция",
+    "Греция",
+    "Великобритания",
+    "Ирландия",
+    "Израиль",
+    "Италия",
+    "Казахстан",
+    "Латвия",
+    "Литва",
+    "Нидерланды",
+    "Украина",
+    "Польша",
+    "Португалия"
 ]
     },
 

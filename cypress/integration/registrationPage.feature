@@ -18,3 +18,7 @@ Feature: Verification of Bloomenty Registration page
     Then I should see that Placeholders are correct for Four registration input fields
     And I fill in Six registration input fields
     And I accept all registration rules
+
+  Scenario: Verify that the data for 'Country' dropdown are correct
+    When I navigate to "Registration" page
+    Then I should see that the data for 'Country' dropdown are correct

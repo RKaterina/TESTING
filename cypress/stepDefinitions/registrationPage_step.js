@@ -10,21 +10,21 @@ const common_page = new Common_page();
 const header_selectors = new Header_selectors();
 const registrationPage_selectors = new RegistrationPage_selectors();
 
+
+let registrationPage_data; // Used us a link to the fixtures data
 let loginPage_data; // Used us a link to the fixtures data
 
 before(() => {
     cy.fixture("/loginPage.json").then((loginDataFile) => {
         loginPage_data = loginDataFile;
     });
-});
 
-let registrationPage_data; // Used us a link to the fixtures data
-
-before(() => {
     cy.fixture("/registrationPage.json").then((registrationDataFile) => {
         registrationPage_data = registrationDataFile;
     });
 });
+
+
 
 When("I fill in the {string} field on the 'Registration' page with Correct data", (nameInputFieldRegistration) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "InputField");
@@ -50,10 +50,10 @@ When("I fill in the {string} field on the 'Registration' page with Correct data"
 
 When("I should see that Placeholders are correct for Four registration input fields", () => {
 
-    for (let i = 0; i < registrationPage_data.placeholdersData.placeholdersInputFields.length; i++) {
+    for (let i = 0; i < registrationPage_data.registrationPageData.placeholdersInputFields.length; i++) {
 
-        const selector = registrationPage_data.placeholdersData.placeholdersSelectors[i];
-        const placeholder = registrationPage_data.placeholdersData.placeholdersInputFields[i];
+        const selector = registrationPage_data.registrationPageData.inputFieldSelectors[i];
+        const placeholder = registrationPage_data.registrationPageData.placeholdersInputFields[i];
 
         cy.log("Index i = " + i);
         cy.log("Selector Name = " + selector);
@@ -67,10 +67,10 @@ When("I should see that Placeholders are correct for Four registration input fie
 
 Then("I fill in Six registration input fields", () => {
 
-    for (let i = 0; i < registrationPage_data.placeholdersData.placeholdersSelectors.length; i++) {
+    for (let i = 0; i < registrationPage_data.registrationPageData.inputFieldSelectors.length; i++) {
 
-        const selector = registrationPage_data.placeholdersData.placeholdersSelectors[i];
-        const inputData = registrationPage_data.placeholdersData.registrationInputData[i];
+        const selector = registrationPage_data.registrationPageData.inputFieldSelectors[i];
+        const inputData = registrationPage_data.registrationPageData.registrationInputFillInData[i];
 
         cy.log("Index i = " + i);
         cy.log("Selector Name = " + selector);
@@ -83,13 +83,24 @@ Then("I fill in Six registration input fields", () => {
 
 Then("I accept all registration rules", () => {
 
-    for (let i = 0; i < registrationPage_data.placeholdersData.registrationCheckboxes.length; i++) {
+    for (let i = 0; i < registrationPage_data.registrationPageData.registrationCheckboxes.length; i++) {
 
-        const selector = registrationPage_data.placeholdersData.registrationCheckboxes[i];
+        const selector = registrationPage_data.registrationPageData.registrationCheckboxes[i];
 
         cy.log("Index i = " + i);
         cy.log("Selector Name = " + selector);
 
         cy.get(registrationPage_selectors[selector]).click();
+    }
+});
+
+Then("I should see that the data for 'Country' dropdown are correct", () => {
+
+    for (let i = 0; i < registrationPage_data.registrationPageData.countriesList.length; i++) {
+
+        const dropdownData = registrationPage_data.registrationPageData.countriesList[i];
+
+        cy.get(registrationPage_selectors.countryDropdown).contains(dropdownData).click({ force: true });
+
     }
 });

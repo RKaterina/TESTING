@@ -12,20 +12,18 @@ const common_selectors = new Common_selectors();
 const vacanciesPage_selectors = new VacanciesPage_selectors();
 
 let common_data; // Used us a link to the fixtures data
+let vacanciesPage_data; // Used us a link to the fixtures data
 
 before(() => {
     cy.fixture("/common.json").then((commonDataFile) => {
         common_data = commonDataFile;
     });
-});
 
-let vacanciesPage_data; // Used us a link to the fixtures data
-
-before(() => {
     cy.fixture("/vacanciesPage.json").then((vacanciesPageDataFile) => {
         vacanciesPage_data = vacanciesPageDataFile;
     });
 });
+
 
 When("I should see that 'Vacancies' icon on the 'Vacancies' page is displayed", () => {
     cy.get(vacanciesPage_selectors.iconVacanciesPage).should("be.visible");
@@ -36,7 +34,7 @@ When("I select first item in the 'All countries' dropdown 'Vacancies' page", () 
 });
 
 When("I should see that {string} dropdown on the 'Vacancies' page is displayed", (nameDropdown) => {
-    const selector = common_page.removeSpaceAndApplyCamelCase(nameDropdown, "", "DropdownVacanciesPage");
+    const selector = common_page.removeSpaceAndApplyCamelCase(nameDropdown, "", "Dropdown");
     switch (nameDropdown) {
         case "All vacancies":
         case "All countries":
@@ -49,7 +47,7 @@ When("I should see that {string} dropdown on the 'Vacancies' page is displayed",
 });
 
 When("I press {string} dropdown on the 'Vacancies' page", (vacanciesDropdownClick) => {
-    const selector = common_page.removeSpaceAndApplyCamelCase(vacanciesDropdownClick, "", "DropdownVacanciesPage");
+    const selector = common_page.removeSpaceAndApplyCamelCase(vacanciesDropdownClick, "", "Dropdown");
     switch (vacanciesDropdownClick) {
         case "All vacancies":
         case "All countries":
@@ -139,22 +137,43 @@ When("I should see that {string} item dropdown 'All cities' on the 'Vacancies' p
     }
 });
 
+When("I press 'Learn more' button on the 'Vacancies' page", () => {
+    cy.get(vacanciesPage_selectors.learnMoreButton).click();
+});
 
+When("I should see that 'Aplly for vacancies' item is displayed", () => {
+    cy.get(vacanciesPage_selectors.ApplyForVacancies).should("be.visible");
+});
 
+Then("I should see that the data for 'Vacancies' dropdown are correct", () => {
 
+    for (let i = 0; i < vacanciesPage_data.dropdownsData.vacanciesList.length; i++) {
 
-// When("I press item {string} for 'Services' header menu", (headerItemSubMenu) => {
-//     const selector = common_page.removeSpaceAndApplyCamelCase(headerItemSubMenu, "headerServices", "SubMenu");
-//     switch (headerItemSubMenu) {
-//         case "Vacancies":
-//         case "TravelClub":
-//         case "News":
-//         case "Blog":
-//             cy.get(header_selectors[selector]).click({ force: true });
-//             break;
-//         default:
-//             throw new Error(`Unknown item name data specified: ${headerItemSubMenu}`);
-//     }
-// });
+        const dropdownData = vacanciesPage_data.dropdownsData.vacanciesList[i];
 
+        cy.get(vacanciesPage_selectors.allVacanciesDropdown).contains(dropdownData);
 
+    }
+});
+
+Then("I should see that the data for 'Countries' dropdown are correct", () => {
+
+    for (let i = 0; i < vacanciesPage_data.dropdownsData.countriesList.length; i++) {
+
+        const dropdownData = vacanciesPage_data.dropdownsData.countriesList[i];
+
+        cy.get(vacanciesPage_selectors.allCountriesDropdown).contains(dropdownData);
+
+    }
+});
+
+Then("I should see that the data for 'Cities' dropdown are correct", () => {
+
+    for (let i = 0; i < vacanciesPage_data.dropdownsData.citiesList.length; i++) {
+
+        const dropdownData = vacanciesPage_data.dropdownsData.citiesList[i];
+
+        cy.get(vacanciesPage_selectors.allCitiesDropdown).contains(dropdownData);
+
+    }
+});

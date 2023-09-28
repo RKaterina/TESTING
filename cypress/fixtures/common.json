@@ -3,7 +3,9 @@
     "vacanciesPageURL": "https://bloomenty.com/nl/vacancies",
     "homePageURL": "https://bloomenty.com/nl/home",
     "loginPageURL": "https://bloomenty.com/nl/myaccount/login",
-    "registrationPageURL": "https://bloomenty.com/ru/registration"
+    "registrationPageURL": "https://bloomenty.com/ru/registration",
+    "blogPageURL": "https://bloomenty.com/nl/blog",
+    "newsPageURL": "https://bloomenty.com/nl/news"
 
 },    
   "twoSecond": 2000,
