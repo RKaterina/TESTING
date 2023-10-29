@@ -21,6 +21,10 @@ before(() => {
     cy.fixture("/loginPage.json").then((loginDataFile) => {
         loginPage_data = loginDataFile;
     });
+
+    cy.session("cookie", () => {
+    });
+
 });
 
 let homePage_data; // Used us a link to the fixtures data
@@ -60,6 +64,7 @@ When("I navigate to {string} page", (navigateToPage) => {
         case "Registration":
         case "Blog":
         case "News":
+        case "Farmer form":
             cy.visit(common_data.URL[data]);
             break;
         default:
@@ -99,14 +104,15 @@ When("I wait for {string} seconds", (waitingTime) => {
 });
 
 When("I should see that BreadCrumb is {string} for the {string} page", (presence, pageName) => {
+    const dataPageName = common_page.removeSpaceAndApplyCamelCase(pageName, "page", "");
     switch (presence) {
         case "Displayed":
-            cy.get(common_selectors.breadcrumbPage).should("be.visible");
+            cy.get(common_selectors.breadcrumbPage).should("be.visible").should("contain", common_data.pageName[dataPageName])
             break;
         case "Not displayed":
             cy.get(common_selectors.breadcrumbPage).should("not.exist");
             break;
         default:
-            throw new Error(`Unknown presence is specified: ${presence}`);
+            throw new Error(`Unknown presence status is specified: ${presence}`);
     }
 });

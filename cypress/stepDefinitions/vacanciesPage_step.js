@@ -35,67 +35,67 @@ When("I select first item in the 'All countries' dropdown 'Vacancies' page", () 
 
 When("I should see that {string} dropdown on the 'Vacancies' page is displayed", (nameDropdown) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(nameDropdown, "", "Dropdown");
-    switch (nameDropdown) {
-        case "All vacancies":
-        case "All countries":
-        case "All cities":
-            cy.get(vacanciesPage_selectors[selector]).should("be.visible");
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${nameDropdown}`);
-    }
+    // switch (nameDropdown) {
+    //     case "All vacancies":
+    //     case "All countries":
+    //     case "All cities":
+    cy.get(vacanciesPage_selectors[selector]).should("be.visible");
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item name data specified: ${nameDropdown}`);
+    // }
 });
 
 When("I press {string} dropdown on the 'Vacancies' page", (vacanciesDropdownClick) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(vacanciesDropdownClick, "", "Dropdown");
-    switch (vacanciesDropdownClick) {
-        case "All vacancies":
-        case "All countries":
-        case "All cities":
-            cy.get(vacanciesPage_selectors[selector]).click();
-            break;
-        default:
-            throw new Error(`Unknown dropdown name data specified: ${vacanciesDropdownClick}`);
-    }
+    // switch (vacanciesDropdownClick) {
+    //     case "All vacancies":
+    //     case "All countries":
+    //     case "All cities":
+    cy.get(vacanciesPage_selectors[selector]).click();
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown dropdown name data specified: ${vacanciesDropdownClick}`);
+    // }
 });
 
 When("I select {string} item in the 'All vacancies' dropdown 'Vacancies' page", (selectVacancies) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(selectVacancies, "", "ItemAllVacanciesVacanciesPage");
-    switch (selectVacancies) {
-        case "Florist":
-        case "Greenhouse worker":
-        case "Wedding coordinator Freelance":
-            cy.get(vacanciesPage_selectors[selector]).click();
-            break;
-        default:
-            throw new Error(`Unknown item dropdown specified: ${selectVacancies}`);
-    }
+    // switch (selectVacancies) {
+    //     case "Florist":
+    //     case "Greenhouse worker":
+    //     case "Wedding coordinator Freelance":
+    cy.get(vacanciesPage_selectors[selector]).click();
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item dropdown specified: ${selectVacancies}`);
+    // }
 });
 
 When("I should see that {string} item top 'Vacancies' on the 'Vacancies' page is displayed", (itemTopVacanciesVisible) => {
     const data = common_page.removeSpaceAndApplyCamelCase(itemTopVacanciesVisible, "item", "TopVacancies");
-    switch (itemTopVacanciesVisible) {
-        case "Florist":
-        case "Greenhouse worker":
-        case "Wedding coordinator Freelance":
-            cy.get(vacanciesPage_selectors.itemTopVacanciesPage).should("contain", vacanciesPage_data[data]);
-            break;
-        default:
-            throw new Error(`Unknow item top Vacancies specified: ${itemTopVacanciesVisible}`);
-    }
+    // switch (itemTopVacanciesVisible) {
+    //     case "Florist":
+    //     case "Greenhouse worker":
+    //     case "Wedding coordinator Freelance":
+    cy.get(vacanciesPage_selectors.itemTopVacanciesPage).should("contain", vacanciesPage_data[data]);
+    //         break;
+    //     default:
+    //         throw new Error(`Unknow item top Vacancies specified: ${itemTopVacanciesVisible}`);
+    // }
 });
 
 When("I select {string} item in the 'All countries' dropdown 'Vacancies' page", (selectCountries) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(selectCountries, "", "ItemAllCountriesVacanciesPage");
-    switch (selectCountries) {
-        case "Nederland":
-        case "Polen":
-        case "Italië":
-            cy.get(vacanciesPage_selectors[selector]).click();
-            break;
-        default:
-            throw new Error(`Unknow item dropdown specified: ${selectCountries}`);
-    }
+    // switch (selectCountries) {
+    //     case "Nederland":
+    //     case "Polen":
+    //     case "Italië":
+    cy.get(vacanciesPage_selectors[selector]).click();
+    //         break;
+    //     default:
+    //         throw new Error(`Unknow item dropdown specified: ${selectCountries}`);
+    // }
 });
 
 When("I should see that {string} item dropdown 'All countries' on the 'Vacancies' page is displayed", (itemTopCountriesVisible) => {

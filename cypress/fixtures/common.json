@@ -5,11 +5,20 @@
     "loginPageURL": "https://bloomenty.com/nl/myaccount/login",
     "registrationPageURL": "https://bloomenty.com/ru/registration",
     "blogPageURL": "https://bloomenty.com/nl/blog",
-    "newsPageURL": "https://bloomenty.com/nl/news"
+    "newsPageURL": "https://bloomenty.com/nl/news",
+    "farmerFormPageURL": "https://bloomenty.com/form?"
 
 },    
   "twoSecond": 2000,
   "threeSecond": 3000,
-  "sevenSecond": 7000
+  "sevenSecond": 7000,
+
+"pageName":{
+    "pageVacancies": "Vacatures",
+    "pageBlog": "Blog",
+    "pageNews": "Nieuws"
+}
+
+
 
 }

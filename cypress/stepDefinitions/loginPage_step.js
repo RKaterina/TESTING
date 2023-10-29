@@ -48,9 +48,6 @@ When("I fill in the 'Email' field on the 'Login' page with {string} data", (emai
     cy.log("Наши данные Json = " + data)
 
     switch (emailInputData) {
-        case "Correct":
-            common_page.typeDataForInputField(loginPage_selectors.emailInputField, loginPage_data.emailCorrectData);
-            break;
         case "No symbols before At":
         case "No symbols after At":
         case "No symbols after dot":
@@ -70,9 +67,6 @@ When("I fill in the 'Password' field on the 'Login' page with {string} data", (p
     cy.log("Наши данные Json = " + data)
 
     switch (passwordInputData) {
-        case "Correct":
-            common_page.typeDataForInputField(loginPage_selectors.passwordInputField, loginPage_data.passwordCorrectData);
-            break;
         case "One dot":
         case "No symbols":
         case "One symbol":
@@ -84,4 +78,25 @@ When("I fill in the 'Password' field on the 'Login' page with {string} data", (p
             throw new Error(`Unknown password data is specified: ${passwordInputData}`);
     }
 })
+
+When("I press {string} key for {string} field on the 'Login' page", (nameKeyData, nameInputField) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(nameInputField, "", "InputField")
+    const nameKey = common_page.removeSpaceAndApplyCamelCase(nameKeyData, "", "Key")
+    cy.get(loginPage_selectors[selector]).type(loginPage_data[nameKey]);
+});
+
+When("I fill in the {string} field with {string} data on the 'Login' page", (nameInputField, nameInputData) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(nameInputField, "", "InputField")
+    const data = common_page.removeSpaceAndApplyCamelCase(nameInputData, "", "Data")
+
+    common_page.typeDataForInputField(loginPage_selectors[selector], loginPage_data.correctData[data]);
+});
+
+When("I fill in the 'Email' field 'ASDF' data on the 'Login' page", () => {
+    cy.get(loginPage_selectors.emailInputField).type(loginPage_data.ASDFData);
+});
+
+Then("I should see that 'Email' field contain 'AS' data", () => {
+    cy.get(loginPage_selectors.emailInputField).should("have.value", "AS");
+});
 

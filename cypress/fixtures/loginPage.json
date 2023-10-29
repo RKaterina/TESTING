@@ -22,8 +22,11 @@
         "upperCaseSymbols": "TEST86"
     }  
   },
+  "correctData":{
   "emailCorrectData": "edaglidenok.86+86@gmail.com",
   "passwordCorrectData": "test86"
-  
-  
+},
+  "enterKey": "{enter}",
+  "backspaceKey": "{backspace}",
+  "ASDFData": "ASDF" 
 }

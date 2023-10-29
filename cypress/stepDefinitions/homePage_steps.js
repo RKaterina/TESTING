@@ -16,10 +16,6 @@ before(() => {
     cy.fixture("/homePage.json").then((homeDataFile) => {
         homePage_data = homeDataFile;
     });
-
-    cy.visit("https://bloomenty.com/nl/home");
-    cy.session("cookie", () => {
-    });
 });
 
 

@@ -16,9 +16,6 @@ before(() => {
         header_data = headerDataFile;
     });
 
-    cy.visit("https://bloomenty.com/nl/home");
-    cy.session("cookie", () => {
-    });
 });
 
 When("I should see that 'Bloomenty logo' on the header is displayed", () => {

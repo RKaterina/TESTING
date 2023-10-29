@@ -22,9 +22,6 @@ before(() => {
         footer_data = footerDataFile;
     });
 
-    cy.visit("https://bloomenty.com/nl/home");
-    cy.session("cookie", () => {
-    });
 });
 
 let footer_data; // Used us a link to the fixtures data
@@ -57,45 +54,45 @@ When("I should see that Four unclickable items in the footer is displayed", () =
 
 When("I press item {string} in the footer navigation", (footerItemNavigation) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(footerItemNavigation, "footerNavigation", "");
-    switch (footerItemNavigation) {
-        case "About us":
-        case "News":
-        case "Blog":
-        case "Forum":
-        case "Our team":
-        case "Contacts":
-        case "My account":
-        case "News":
-        case "Vacancies":
-            cy.get(footer_selectors[selector]).click();
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${footerItemNavigation}`);
-    }
+    // switch (footerItemNavigation) {
+    //     case "About us":
+    //     case "News":
+    //     case "Blog":
+    //     case "Forum":
+    //     case "Our team":
+    //     case "Contacts":
+    //     case "My account":
+    //     case "News":
+    //     case "Vacancies":
+    cy.get(footer_selectors[selector]).click();
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item name data specified: ${footerItemNavigation}`);
+    // }
 });
 
 When("I press item {string} for official docs in the footer", (footerItemOfficialDocs) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(footerItemOfficialDocs, "footerOfficialDocs", "");
-    switch (footerItemOfficialDocs) {
-        case "Platform rules":
-        case "Privacy policy":
-            cy.get(footer_selectors[selector]).click();
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${footerItemOfficialDocs}`);
-    }
+    // switch (footerItemOfficialDocs) {
+    //     case "Platform rules":
+    //     case "Privacy policy":
+    cy.get(footer_selectors[selector]).click();
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item name data specified: ${footerItemOfficialDocs}`);
+    // }
 });
 
 When("I should see that {string} on the 'Official docs' page is displayed", (ItemOfficialDocsPage) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(ItemOfficialDocsPage, "title", "OfficialDocsPage");
-    switch (ItemOfficialDocsPage) {
-        case "Platform rules":
-        case "Privacy policy":
-            cy.get(common_selectors[selector]).should("be.visible");
-            break;
-        default:
-            throw new Error(`Unknown item name data specified: ${ItemOfficialDocsPage}`);
-    }
+    // switch (ItemOfficialDocsPage) {
+    //     case "Platform rules":
+    //     case "Privacy policy":
+    cy.get(common_selectors[selector]).should("be.visible");
+    //         break;
+    //     default:
+    //         throw new Error(`Unknown item name data specified: ${ItemOfficialDocsPage}`);
+    // }
 });
 
 
