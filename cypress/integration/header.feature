@@ -2,7 +2,6 @@ Feature: Verification for Header of Bloomenty
 
   Scenario: Verify header menu
     When I navigate to "Home" page
-    And I wait for "3" seconds
     And I press 'Accept' button on the 'Cookies' page
     Then I should see that 'Bloomenty logo' on the header is displayed
     And I should see that "Services" menu on the header is displayed

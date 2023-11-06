@@ -2,7 +2,6 @@ Feature: Verification for Footer of Bloomenty
 
   Scenario: Verify footer of Bloomenty
     When I navigate to "Home" page
-    And I wait for "3" seconds
     And I press 'Accept' button on the 'Cookies' page
     Then I should see that Four unclickable items in the footer is displayed
 
@@ -28,8 +27,8 @@ Feature: Verification for Footer of Bloomenty
 
   Scenario: Verify item 'My account' in the footer navigation
     When I press item "My account" in the footer navigation
-    And I fill in the 'Email' field on the 'Login' page with "Correct" data
-    And I fill in the 'Password' field on the 'Login' page with "Correct" data
+    And I fill in the "Email" field with "Email correct" data on the 'Login' page
+    And I fill in the "Password" field with "Password correct" data on the 'Login' page
     And I press 'Submit' button on the 'Login' page
     Then I should see that "My account" title on the "My account" page is displayed
 

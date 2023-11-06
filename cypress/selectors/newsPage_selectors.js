@@ -2,7 +2,8 @@
 
 export default class NewsPage_selectors {
 
-    name = "selector"
+    emailInputField = ".sidebar > .green-email > .form-block > .subscribe > .form-group > #search-sidebar"
+    notificationMessage = ".ncf"
 
 
 

@@ -80,7 +80,7 @@ When("I press {string} button on the 'Cookies' page", (buttonName) => {
     switch (buttonName) {
         case "Cancel":
         case "Accept":
-            cy.get(homePage_selectors[selector]).click();
+            cy.get(homePage_selectors[selector], { timeout: 5000 }).click();
             break;
         default:
             throw new Error(`Unknown button name data specified: ${buttonName}`);

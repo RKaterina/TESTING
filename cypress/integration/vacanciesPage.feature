@@ -2,7 +2,6 @@ Feature: Verification of Bloomenty Vacancies page
 
   Scenario: Verify Vacancies title and icon
     Given I navigate to "Home" page
-    And I wait for "3" seconds
     And I press 'Accept' button on the 'Cookies' page
     When I navigate to "Vacancies" page
     Then I should see that "Vacancies" title on the "Vacancies" page is displayed

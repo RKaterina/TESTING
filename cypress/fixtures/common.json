@@ -17,8 +17,13 @@
     "pageVacancies": "Vacatures",
     "pageBlog": "Blog",
     "pageNews": "Nieuws"
-}
+},
 
-
+"enterKey": "{enter}",
+"backspaceKey": "{backspace}",
+"deleteKey": "{del}",
+ "leftArrowKey": "{leftArrow}",
+"rightArrowKey": "{rightArrow}",
+"ASDFData": "ASDF" 
 
 }

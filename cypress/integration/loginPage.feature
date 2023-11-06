@@ -2,7 +2,6 @@ Feature: Verification of Bloomenty Login page
 
   Scenario: Verify 'Login' button from the Home page
     When I navigate to "Home" page
-    And I wait for "3" seconds
     And I press 'Cancel' button on the 'Cookies' page
     And I press "Login" button on the header
     Then I should see that 'Login' page is displayed
@@ -26,7 +25,7 @@ Feature: Verification of Bloomenty Login page
     And I navigate to "Login" page
     When I fill in the "Email" field with "Email correct" data on the 'Login' page
     And I fill in the "Password" field with "Password correct" data on the 'Login' page
-    And I press "Enter" key for "Password" field on the 'Login' page
+    And I press "Enter" key for "Password" field on the "Login" page
     Then I should see that avatar on the 'My account' page is displayed
     And I should see that "My account" title on the "My account" page is displayed
 
@@ -34,8 +33,16 @@ Feature: Verification of Bloomenty Login page
     Given I press "Logout" button on the header
     And I navigate to "Login" page
     When I fill in the 'Email' field 'ASDF' data on the 'Login' page
-    And I press "Backspace" key for "Email" field on the 'Login' page
-    And I press "Backspace" key for "Email" field on the 'Login' page
+    And I press "Backspace" key for "Email" field on the "Login" page
+    And I press "Backspace" key for "Email" field on the "Login" page
+    Then I should see that 'Email' field contain 'AS' data
+
+  Scenario: Verify that 'Delete' key work correctly on the 'Login' page
+    When I fill in the 'Email' field 'ASDF' data on the 'Login' page
+    And I move cursor to the "Left" for "Email" field on the "Login" page
+    And I move cursor to the "Left" for "Email" field on the "Login" page
+    And I press "Delete" key for "Email" field on the "Login" page
+    And I press "Delete" key for "Email" field on the "Login" page
     Then I should see that 'Email' field contain 'AS' data
 
   Scenario: Verify 'No symbols before At' input data for 'Email' field

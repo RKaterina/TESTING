@@ -9,10 +9,15 @@ const common_page = new Common_page();
 const header_selectors = new Header_selectors();
 
 let loginPage_data; // Used us a link to the fixtures data
+let common_data; // Used us a link to the fixtures data
 
 before(() => {
     cy.fixture("/loginPage.json").then((loginDataFile) => {
         loginPage_data = loginDataFile;
+    });
+
+    cy.fixture("/common.json").then((commonDataFile) => {
+        common_data = commonDataFile;
     });
 });
 
@@ -79,12 +84,6 @@ When("I fill in the 'Password' field on the 'Login' page with {string} data", (p
     }
 })
 
-When("I press {string} key for {string} field on the 'Login' page", (nameKeyData, nameInputField) => {
-    const selector = common_page.removeSpaceAndApplyCamelCase(nameInputField, "", "InputField")
-    const nameKey = common_page.removeSpaceAndApplyCamelCase(nameKeyData, "", "Key")
-    cy.get(loginPage_selectors[selector]).type(loginPage_data[nameKey]);
-});
-
 When("I fill in the {string} field with {string} data on the 'Login' page", (nameInputField, nameInputData) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(nameInputField, "", "InputField")
     const data = common_page.removeSpaceAndApplyCamelCase(nameInputData, "", "Data")
@@ -93,10 +92,11 @@ When("I fill in the {string} field with {string} data on the 'Login' page", (nam
 });
 
 When("I fill in the 'Email' field 'ASDF' data on the 'Login' page", () => {
-    cy.get(loginPage_selectors.emailInputField).type(loginPage_data.ASDFData);
+    common_page.typeDataForInputField(loginPage_selectors.emailInputField, common_data.ASDFData);
 });
 
 Then("I should see that 'Email' field contain 'AS' data", () => {
     cy.get(loginPage_selectors.emailInputField).should("have.value", "AS");
 });
+
 
