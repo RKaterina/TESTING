@@ -1,5 +1,6 @@
 {
   
-  "name": "value"
+  "articleNumberFirstPath": "#blog-search-result--item-",
+  "articleNumberSecondPath": " > .title > a"
   
 }

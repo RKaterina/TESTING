@@ -56,22 +56,7 @@ let registrationPage_data; // Used us a link to the fixtures data
 
 When("I navigate to {string} page", (navigateToPage) => {
     const data = common_page.removeSpaceAndApplyCamelCase(navigateToPage, "", "PageURL");
-
-    cy.log("Наши данные Json = " + data)
-
-    switch (navigateToPage) {
-        case "Home":
-        case "Login":
-        case "Vacancies":
-        case "Registration":
-        case "Blog":
-        case "News":
-        case "Farmer form":
-            cy.visit(common_data.URL[data]);
-            break;
-        default:
-            throw new Error(`Unknown page name data specified: ${navigateToPage}`);
-    }
+    cy.visit(common_data.URL[data]);
 })
 
 Then("I should see that {string} field on the 'Login' page is displayed", (nameInputField) => {
@@ -125,9 +110,19 @@ When("I should see that BreadCrumb is {string} for the {string} page", (presence
     }
 });
 
-When("I press {string} key for {string} field on the {string} page", (nameKeyData, nameInputField, pageName) => {
-    const selector = common_page.removeSpaceAndApplyCamelCase(nameInputField, "", "InputField")
-    const nameKey = common_page.removeSpaceAndApplyCamelCase(nameKeyData, "", "Key")
+// When("I press {string} key for {string} field on the {string} page", (dataKeyName, inputFieldName, pageName) => {
+//     const selector = common_page.removeSpaceAndApplyCamelCase(inputFieldName, "", "InputField")
+//     const pageSelectors = common_page.removeSpaceAndApplyCamelCase(pageName, "", "Page_selectors")
+//     const nameKey = common_page.removeSpaceAndApplyCamelCase(dataKeyName, "", "Key")
+
+//     cy.log(pageSelectors)
+
+//     cy.get([pageSelectors][selector]).type(common_data[nameKey]);
+// });
+
+When("I press {string} key for {string} field on the {string} page", (dataKeyName, inputFieldName, pageName) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(inputFieldName, "", "InputField")
+    const nameKey = common_page.removeSpaceAndApplyCamelCase(dataKeyName, "", "Key")
 
     switch (pageName) {
         case "Login":

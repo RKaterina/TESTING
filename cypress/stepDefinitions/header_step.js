@@ -77,7 +77,7 @@ When("I press {string} button on the header", (headerButtonName) => {
     cy.get(header_selectors[selector]).click({ force: true });
     //         break;
     //     default:
-    //         throw new Error(`Unknown button name data specified: ${headerButtonName}`);
+            // throw new Error(`Unknown button name data specified: ${headerButtonName}`);
     // }
 
 });

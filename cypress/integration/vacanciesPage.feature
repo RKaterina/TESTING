@@ -60,4 +60,5 @@ Feature: Verification of Bloomenty Vacancies page
     Then I should see that 'Aplly for vacancies' item is displayed
 
   Scenario: Verify BreadCrumb for the 'Vacancies' page
+    When I navigate to "Vacancies" page
     Then I should see that BreadCrumb is "Displayed" for the "Vacancies" page

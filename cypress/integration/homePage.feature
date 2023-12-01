@@ -14,7 +14,7 @@ Feature: Verification of Bloomenty Home page
     And I wait for "3" seconds
     Then I should see that 'Cookies' page is "Not displayed"
 
-  Scenario: Verify 'Cookie page' link Via 'clicking the link'
+  Scenario: Verify 'Cookie page' link via 'clicking the link'
     When I clear all Cookies
     And I refresh the page
     And I wait for "3" seconds
@@ -48,4 +48,5 @@ Feature: Verification of Bloomenty Home page
     Then I should see correct 'Online platform' page header
 
   Scenario: Verify BreadCrumb for the 'Home' page
+    When I navigate to "Home" page
     Then I should see that BreadCrumb is "Not displayed" for the "Home" page

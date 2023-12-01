@@ -6,6 +6,7 @@ Feature: Verification of Bloomenty News page
     Then I should see that "News" title on the "News" page is displayed
 
   Scenario: Verify BreadCrumb for the 'News' page
+    When I navigate to "News" page
     Then I should see that BreadCrumb is "Displayed" for the "News" page
 
   Scenario: Verify that 'Enter' key work correctly on the 'News' page

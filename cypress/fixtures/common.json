@@ -6,7 +6,8 @@
     "registrationPageURL": "https://bloomenty.com/ru/registration",
     "blogPageURL": "https://bloomenty.com/nl/blog",
     "newsPageURL": "https://bloomenty.com/nl/news",
-    "farmerFormPageURL": "https://bloomenty.com/form?"
+    "farmerFormPageURL": "https://bloomenty.com/form?",
+    "landscapeDesignPageURL": "https://bloomenty.com/nl/blog/landscape-design"
 
 },    
   "twoSecond": 2000,

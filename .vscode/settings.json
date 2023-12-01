@@ -1,11 +1,12 @@
 {
     "editor.detectIndentation": false,
-    "window.zoomLevel": 0,    
+    "window.zoomLevel": 1,    
     "cucumber.features": [
         "cypress/integration/features/**/*.feature"
     ],
     "cucumber.glue": [
         "cypress/stepDefinitions/**/*.js"
     ],
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": true
 }
