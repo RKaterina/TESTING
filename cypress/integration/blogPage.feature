@@ -76,3 +76,44 @@ Feature: Verification of Bloomenty Blog page
     And I navigate to "landscape design" page
     And I press 'Read' button for article #"3" on the 'All article' page
     And I should see that "Third" article header is the same as for 'One article' page
+
+  Scenario: Verify presence of elements on the 'One article' page
+    When I navigate to "landscape design" page
+    And I press 'Read' button for article #"1" on the 'All article' page
+    Then I should see "Title" element on the 'One article' page
+    And I should see "Head image" element on the 'One article' page
+    And I should see "Search input field" element on the 'One article' page
+    And I should see "Search icon" element on the 'One article' page
+    And I should see "Cross search icon" element on the 'One article' page
+    And I should see "Rating" element on the 'One article' page
+    And I should see "Switcher comments" element on the 'One article' page
+    And I should see "Number comments" element on the 'One article' page
+    And I should see "Comments avatar" element on the 'One article' page
+    And I should see "Comments input field" element on the 'One article' page
+    And I should see "Comments submit button" element on the 'One article' page
+    And I should see "Blog popular block" element on the 'One article' page
+    And I should see "Rubrics block" element on the 'One article' page
+    And I should see "Interesting block" element on the 'One article' page
+    And I should see "Flower day block" element on the 'One article' page
+    And I should see "Advertising link" element on the 'One article' page
+    And I should see "Find your flower link" element on the 'One article' page
+    And I should see "Interesting topic input field" element on the 'One article' page
+    And I should see "Interesting topic submit button" element on the 'One article' page
+
+  Scenario: Verify presence of 'Advertisement' elements on the 'One article' page
+    When I navigate to "landscape design" page
+    And I press 'Read' button for article #"1" on the 'All article' page
+    Then I should see 'Advertisement baner' #1 for 'One article' page
+    And I should see 'Advertisement baner' #2 for 'One article' page
+
+  Scenario: Verify presence of 'Social icon' elements on the 'One article' page
+    When I navigate to "landscape design" page
+    And I press 'Read' button for article #"1" on the 'All article' page
+    Then I should see first item 'Social icon' for 'One article' page
+    And I should see second item 'Social icon' for 'One article' page
+
+  Scenario: Verify presence of 'Social icon' items on the 'One article' page
+    When I navigate to "landscape design" page
+    And I press 'Read' button for article #"1" on the 'All article' page
+    Then I should see 'Facebook icon' for 'One article' page
+    And I should see 'Instagram icon' for 'One article' page

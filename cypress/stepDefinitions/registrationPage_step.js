@@ -26,26 +26,39 @@ before(() => {
 
 
 
-When("I fill in the {string} field on the 'Registration' page with Correct data", (nameInputFieldRegistration) => {
+// When("I fill in the {string} field on the 'Registration' page with Correct data", (nameInputFieldRegistration) => {
+//     const selector = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "InputField");
+//     const data = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "Data");
+
+//     cy.log("Наш селектор = " + selector + "; Наши данные Json = " + data)
+
+//     switch (nameInputFieldRegistration) {
+//         case "Nickname":
+//         case "Name":
+//         case "Surname":
+//             var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.registrationData.correctData[data]);
+
+//             cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.registrationData.correctData[data][rnd])
+
+//             common_page.typeDataForInputField(registrationPage_selectors[selector], registrationPage_data.registrationData.correctData[data][rnd]);
+//             break;
+//         default:
+//             throw new Error(`Unknown field name data specified: ${nameInputFieldRegistration}`);
+//     }
+
+// });
+
+When("I fill in the {string} field on the 'Registration' page with Unique data", (nameInputFieldRegistration) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "InputField");
-    const data = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "Data");
+    const uniqueData = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "UniqueUser", Date.now());
+    const EnvName = common_page.removeSpaceAndApplyCamelCase(nameInputFieldRegistration, "", "");
 
-    cy.log("Наш селектор = " + selector + "; Наши данные Json = " + data)
+    Cypress.env(EnvName, uniqueData);
 
-    switch (nameInputFieldRegistration) {
-        case "Nickname":
-        case "Name":
-        case "Surname":
-            var rnd = common_page.getRandomIndexValueForArray(registrationPage_data.registrationData.correctData[data]);
+    cy.log(`${Cypress.env(EnvName)}`)
 
-            cy.log("index rnd = " + rnd + "; value rnd = " + registrationPage_data.registrationData.correctData[data][rnd])
-
-            common_page.typeDataForInputField(registrationPage_selectors[selector], registrationPage_data.registrationData.correctData[data][rnd]);
-            break;
-        default:
-            throw new Error(`Unknown field name data specified: ${nameInputFieldRegistration}`);
-    }
-
+    common_page.typeDataForInputField(registrationPage_selectors[selector], uniqueData);
+        cy.log(uniqueData)
 });
 
 When("I should see that Placeholders are correct for Four registration input fields", () => {
@@ -103,4 +116,9 @@ Then("I should see that the data for 'Country' dropdown are correct", () => {
         cy.get(registrationPage_selectors.countryDropdown).contains(dropdownData).click({ force: true });
 
     }
+});
+
+
+When("I press 'Registration' button on the 'Registration' page", () => {
+    cy.get(registrationPage_selectors.registrationSubmitButton).click();
 });

@@ -26,6 +26,7 @@ before(() => {
 
 });
 
+
 When("I select {string} section", (sectionName) => {
     const selector = common_page.removeSpaceAndApplyCamelCase(sectionName, "", "Section");
 
@@ -96,6 +97,46 @@ When("I should see that {string} article header is the same as for 'One article'
 
     cy.get(blogPage_selectors.titleOneArticle).should("contain.text", Cypress.env(envName));
 });
+
+When("I should see {string} element on the 'One article' page", (nameElement) => {
+    const selector = common_page.removeSpaceAndApplyCamelCase(nameElement, "", "OneArticle");
+
+    cy.get(blogPage_selectors[selector]).should("be.visible");
+});
+
+When("I should see 'Advertisement baner' #1 for 'One article' page", () => {
+    
+    cy.get(blogPage_selectors.advertisementBanner).find(blogPage_selectors.advertisementImage).eq(0).should("be.visible");
+});
+
+When("I should see 'Advertisement baner' #2 for 'One article' page", () => {
+
+    cy.get(blogPage_selectors.advertisementBanner).find(blogPage_selectors.advertisementImage).eq(1).should("be.visible");
+});
+
+When("I should see first item 'Social icon' for 'One article' page", () => {
+
+    cy.get(blogPage_selectors.socialIconOneArticle).find(blogPage_selectors.socialItemOneArticle).eq(0).should("be.visible");
+});
+
+When("I should see second item 'Social icon' for 'One article' page", () => {
+
+    cy.get(blogPage_selectors.socialIconOneArticle).find(blogPage_selectors.socialItemOneArticle).eq(1).should("be.visible");
+});
+
+When("I should see 'Facebook icon' for 'One article' page", () => {
+
+    cy.get(blogPage_selectors.socialIconOneArticle).find(blogPage_selectors.socialItemOneArticle).eq(0).should("be.visible")
+    .should('have.attr', 'href').and("include", "facebook");
+});
+
+When("I should see 'Instagram icon' for 'One article' page", () => {
+
+    cy.get(blogPage_selectors.socialIconOneArticle).find(blogPage_selectors.socialItemOneArticle).eq(1).should("be.visible")
+        .should('have.attr', 'href').and("include", "instagram");
+});
+
+
 
 // When("I should see that {string} article header is the same as for 'One article' page", (articleSerialNumber) => {
 //     const envName = common_page.removeSpaceAndApplyCamelCase(articleSerialNumber, "", "ArticleHeader");
